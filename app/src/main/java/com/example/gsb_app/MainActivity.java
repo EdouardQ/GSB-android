@@ -18,7 +18,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText edt_password = (EditText) findViewById(R.id.edt_password);
+        edt_loging = (EditText) findViewById(R.id.edt_loging);
+        edt_password = (EditText) findViewById(R.id.edt_password);
+        btn_connexion = (Button) findViewById(R.id.btn_connexion);
+
         edt_password.setTransformationMethod(new PasswordTransformationMethod());
     }
 }

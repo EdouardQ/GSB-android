@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:id="@+id/tv_info_visiteur"
+        android:gravity="center_horizontal"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="230dp"
+            android:layout_height="75dp"
+            android:text="Praticiens"
+            android:textSize="25dp"
+            android:id="@+id/btn_praticiens"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"/>
+
+        <Button
+            android:layout_width="230dp"
+            android:layout_height="75dp"
+            android:text="Rendez-Vous"
+            android:textSize="25dp"
+            android:id="@+id/btn_rendez_vous"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"/>
+
+        <Button
+            android:layout_width="230dp"
+            android:layout_height="75dp"
+            android:text="Frais"
+            android:textSize="25dp"
+            android:id="@+id/btn_frais"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"/>
+
+        <Button
+            android:layout_width="230dp"
+            android:layout_height="75dp"
+            android:text="Profil"
+            android:textSize="25dp"
+            android:id="@+id/btn_profil"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"/>
+
+        <Button
+            android:layout_width="230dp"
+            android:layout_height="75dp"
+            android:text="Déconnexion"
+            android:backgroundTint="@color/redCustom"
+            android:textSize="25dp"
+            android:id="@+id/btn_deconnexion"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
