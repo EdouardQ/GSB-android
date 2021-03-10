@@ -72,10 +72,6 @@
             android:textSize="25dp"
             android:id="@+id/btn_deconnexion"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"/>
-
     </LinearLayout>
 
 </LinearLayout>
