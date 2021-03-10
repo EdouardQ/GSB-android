@@ -18,15 +18,13 @@
             android:gravity="center_horizontal"
             android:text="Gestionnaire de fiche de frais GSB"
             android:textSize="40dp"/>
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="234dp"
-                android:layout_height="150dp"
-                android:src="@drawable/gsb_logo"
-                android:scaleType="centerCrop"/>
-        </FrameLayout>
+
+        <ImageView
+            android:layout_width="234dp"
+            android:layout_height="150dp"
+            android:src="@drawable/gsb_logo"
+            android:scaleType="centerCrop"/>
+
 
         <LinearLayout
             android:layout_width="wrap_content"
