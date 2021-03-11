@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "940230839944",
+    "project_id": "gsb-app-bdd",
+    "storage_bucket": "gsb-app-bdd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940230839944:android:3089aa4b4628fc3d5f993d",
+        "android_client_info": {
+          "package_name": "com.example.gsb_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940230839944-t5kf498pkmk69isu0pkmpaj590tpvtd2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3jdmRa1EwAAOSNbtSVtzjHEj2KLxepic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940230839944-t5kf498pkmk69isu0pkmpaj590tpvtd2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
