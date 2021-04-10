@@ -19,12 +19,7 @@
             android:text="Gestionnaire de fiche de frais GSB"
             android:textSize="40dp"/>
 
-        <ImageView
-            android:layout_width="234dp"
-            android:layout_height="150dp"
-            android:src="@drawable/gsb_logo"
-            android:scaleType="centerCrop"/>
-
+        
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -57,18 +52,8 @@
         <Button
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:text="Créer compte"
-            android:id="@+id/btn_creer_compte"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="10dp"/>
-
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="50dp"
             android:text="Connexion"
-            android:id="@+id/btn_connexion"/>
+            android:id="@+id/btn_login"/>
 
 
     </LinearLayout>
