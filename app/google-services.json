@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "921931625402",
+    "project_id": "gsb-app-3a4df",
+    "storage_bucket": "gsb-app-3a4df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921931625402:android:6008d9a43d1fdecf372383",
+        "android_client_info": {
+          "package_name": "fr.gsb.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921931625402-ijkrcp1nlgu8cjqtdq9ee028iet2shm9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbMPbQJ_i2nGmQVWwTw7Kr3aslUlul-C0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921931625402-ijkrcp1nlgu8cjqtdq9ee028iet2shm9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

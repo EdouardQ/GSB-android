@@ -1,4 +1,4 @@
-package com.example.gsb_app;
+package fr.gsb.app;
 
 import org.junit.Test;
 
