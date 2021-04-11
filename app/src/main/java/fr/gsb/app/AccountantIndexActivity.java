@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Menu_comptableActivity extends AppCompatActivity {
+public class AccountantIndexActivity extends AppCompatActivity {
 
     private Button btn_dcnx;
     private Button btn_val_frais;
@@ -19,7 +19,7 @@ public class Menu_comptableActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_comptable);
+        setContentView(R.layout.accountant_index);
 
         btn_dcnx = findViewById(R.id.deconnexion);
         btn_val_frais = findViewById(R.id.validation_frais);
@@ -30,7 +30,7 @@ public class Menu_comptableActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent connexion = new Intent(Menu_comptableActivity.this, MainActivity.class);
+                Intent connexion = new Intent(AccountantIndexActivity.this, AuthentificatorActivity.class);
                 startActivity(connexion);
             }
         });
@@ -38,7 +38,7 @@ public class Menu_comptableActivity extends AppCompatActivity {
         btn_val_frais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent val_frais = new Intent(Menu_comptableActivity.this, Frais_comptActivity.class);
+                Intent val_frais = new Intent(AccountantIndexActivity.this, AccountantListExpenseFormLeftActivity.class);
                 startActivity(val_frais);
             }
         });
@@ -46,7 +46,7 @@ public class Menu_comptableActivity extends AppCompatActivity {
         btn_frais_mois.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent frais_mois = new Intent(Menu_comptableActivity.this, Frais_moisActivity.class);
+                Intent frais_mois = new Intent(AccountantIndexActivity.this, AccountantBundleMontlyActivity.class);
                 startActivity(frais_mois);
             }
         });
@@ -54,7 +54,7 @@ public class Menu_comptableActivity extends AppCompatActivity {
         btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent profil = new Intent(Menu_comptableActivity.this, Profil_comptActivity.class);
+                Intent profil = new Intent(AccountantIndexActivity.this, Profil_comptActivity.class);
                 startActivity(profil);
             }
         });

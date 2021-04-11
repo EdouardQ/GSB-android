@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Frais_moisActivity"
+    tools:context=".AccountantListExpenseFormLeftActivity"
     android:orientation="vertical">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,14 +37,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/validation_frais"
             android:layout_weight="0.2"
-            android:text="Frais visiteur"/>
+            android:text="Frais visiteur"
+            android:backgroundTint="#1C41C6"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/frais_mois"
             android:layout_weight="0.2"
-            android:text="Frais Mois"
-            android:backgroundTint="#1C41C6"/>
+            android:text="Frais Mois"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -4,20 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Menu_visiteurActivity"
+    tools:context=".VisitorPractitionersActivity"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#5670CC">
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_ident"
-            android:textColor="#FFFFFF"
             android:textSize="20dp"/>
         <Button
             android:id="@+id/deconnexion"
@@ -32,49 +30,47 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="50dp"
-        android:orientation="vertical"
-        >
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Gestion: "
-            android:textAlignment="center"
-            android:gravity="center_horizontal"
-            android:textSize="50dp"
-            android:layout_marginVertical="40dp"/>
+        android:layout_height="wrap_content">
 
         <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/praticien"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_weight="0.22"
             android:text="Praticiens"
-            android:layout_marginVertical="30dp"
-            android:textSize="25dp"/>
+            android:backgroundTint="#1C41C6"/>
         <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/rdv"
+            android:layout_weight="0.25"
+            android:text="RDV"/>
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rendez-vous"
-            android:layout_marginVertical="30dp"
-            android:textSize="25dp"/>
-        <Button
             android:id="@+id/frais"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Frais"
-            android:layout_marginVertical="30dp"
-            android:textSize="25dp"/>
+            android:layout_weight="0.25"
+            android:text="Frais"/>
         <Button
-            android:id="@+id/profil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Profil"
-            android:layout_marginVertical="30dp"
-            android:textSize="25dp"/>
-
+            android:id="@+id/profil"
+            android:layout_weight="0.25"
+            android:text="Profil"/>
 
     </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ajouter"
+            android:layout_marginHorizontal="100dp"
+            android:layout_gravity="center_horizontal|bottom"/>
+    </FrameLayout>
+
 </LinearLayout>

@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class PraticienActivity extends AppCompatActivity {
+public class VisitorBundleMonthlyActivity extends AppCompatActivity {
 
     private Button btn_dcnx;
     private Button btn_praticien;
@@ -22,7 +22,7 @@ public class PraticienActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_praticien);
+        setContentView(R.layout.visitor_bundle_monthly);
 
         btn_dcnx = findViewById(R.id.deconnexion);
         btn_praticien = findViewById(R.id.praticien);
@@ -31,47 +31,45 @@ public class PraticienActivity extends AppCompatActivity {
         btn_profil = findViewById(R.id.profil);
         tv_ident = findViewById(R.id.tv_ident);
 
-        Intent i_recu = getIntent();
-        String ident_recu = i_recu.getStringExtra("ident");
-        tv_ident.setText(ident_recu);
+         Intent i_recu = getIntent();
+         String ident_recu = i_recu.getStringExtra("ident");
+         tv_ident.setText(ident_recu);
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent connexion = new Intent(PraticienActivity.this, MainActivity.class);
+                Intent connexion = new Intent(VisitorBundleMonthlyActivity.this, AuthentificatorActivity.class);
                 startActivity(connexion);
             }
         });
+        btn_praticien.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String valeur = tv_ident.getText().toString();
+                Intent praticien = new Intent(VisitorBundleMonthlyActivity.this, VisitorPractitionersActivity.class);
+                praticien.putExtra("ident", valeur);
+                startActivity(praticien);
+            }
+        });
+
         btn_rdv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String valeur = tv_ident.getText().toString();
-                Intent rdv = new Intent(PraticienActivity.this, RdvActivity.class);
+                Intent rdv = new Intent(VisitorBundleMonthlyActivity.this, VisitorCalendarActivity.class);
                 rdv.putExtra("ident", valeur);
                 startActivity(rdv);
             }
         });
-
-        btn_frais.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
-                Intent frais = new Intent(PraticienActivity.this, Frais_vActivity.class);
-                frais.putExtra("ident", valeur);
-                startActivity(frais);
-            }
-        });
-
         btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String valeur = tv_ident.getText().toString();
-                Intent profil = new Intent(PraticienActivity.this, ProfilActivity.class);
+                Intent profil = new Intent(VisitorBundleMonthlyActivity.this, VisitorProfilActivity.class);
                 profil.putExtra("ident", valeur);
                 startActivity(profil);
             }
         });
-
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PraticienActivity"
+    tools:context=".VisitorCalendarActivity"
     android:orientation="vertical">
 
     <LinearLayout
@@ -37,14 +37,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/praticien"
             android:layout_weight="0.22"
-            android:text="Praticiens"
-            android:backgroundTint="#1C41C6"/>
+            android:text="Praticiens" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/rdv"
             android:layout_weight="0.25"
-            android:text="RDV"/>
+            android:text="RDV"
+            android:backgroundTint="#1C41C6"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,18 +59,8 @@
             android:text="Profil"/>
 
     </LinearLayout>
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ajouter"
-            android:layout_marginHorizontal="100dp"
-            android:layout_gravity="center_horizontal|bottom"/>
-    </FrameLayout>
-
+    <DatePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
 </LinearLayout>
