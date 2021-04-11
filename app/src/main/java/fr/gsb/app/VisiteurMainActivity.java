@@ -1,5 +1,4 @@
 package fr.gsb.app;
-
 import android.os.Bundle;
 
 public class VisiteurMainActivity extends MyAppCompatActivity {

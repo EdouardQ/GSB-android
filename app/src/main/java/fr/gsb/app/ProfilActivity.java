@@ -1,5 +1,4 @@
-package com.example.gsb;
-
+package fr.gsb.app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
