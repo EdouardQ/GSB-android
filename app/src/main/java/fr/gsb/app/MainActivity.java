@@ -26,11 +26,11 @@ public class MainActivity extends MyAppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_activity);
 
-        this.edt_email = findViewById(R.id.edt_email);
-        this.edt_password = findViewById(R.id.edt_password);
-        this.btn_login = findViewById(R.id.btn_login);
+        this.edt_email = findViewById(R.id.identifiant);
+        this.edt_password = findViewById(R.id.password);
+        this.btn_login = findViewById(R.id.connexion);
 
         this.mAuth = FirebaseAuth.getInstance();
 
@@ -57,7 +57,7 @@ public class MainActivity extends MyAppCompatActivity {
 
                                     FirebaseUser user = mAuth.getCurrentUser();
 
-                                    Intent i = new Intent(MainActivity.this, VisiteurMainActivity.class);
+                                    Intent i = new Intent(MainActivity.this, VisitorIndexActivity.class);
                                     startActivity(i);
 
                                 } else {

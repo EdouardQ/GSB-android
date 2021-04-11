@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".VisiteurMainActivity"></activity>
+        <activity android:name=".VisitorIndexActivity"></activity>
+        <activity android:name=".VisitorBundleMonthlyActivity"></activity>
+        <activity android:name=".VisitorCalendarActivity"></activity>
+        <activity android:name=".VisitorPractitionersActivity"></activity>
+        <activity android:name=".VisitorProfilActivity"></activity>
+        <activity android:name=".AccountantIndexActivity"></activity>
+        <activity android:name=".AccountantBundleMontlyActivity"></activity>
+        <activity android:name=".AccountantListExpenseFormLeftActivity"></activity>
+        <activity android:name=".AccountantProfilActivity"></activity>
     </application>
 </manifest>
