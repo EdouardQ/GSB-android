@@ -39,7 +39,7 @@ public class VisitorCalendarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent connexion = new Intent(VisitorCalendarActivity.this, AuthentificatorActivity.class);
+                Intent connexion = new Intent(VisitorCalendarActivity.this, MainActivity.class);
                 startActivity(connexion);
             }
         });

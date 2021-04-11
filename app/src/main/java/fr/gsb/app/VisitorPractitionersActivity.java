@@ -39,7 +39,7 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent connexion = new Intent(VisitorPractitionersActivity.this, AuthentificatorActivity.class);
+                Intent connexion = new Intent(VisitorPractitionersActivity.this, MainActivity.class);
                 startActivity(connexion);
             }
         });
