@@ -16,7 +16,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class AuthentificatorActivity extends MyAppCompatActivity {
+public class MainActivity extends MyAppCompatActivity {
 
     private EditText edt_email, edt_password;
     private Button btn_login;
@@ -26,7 +26,7 @@ public class AuthentificatorActivity extends MyAppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.main_activity);
 
         this.edt_email = findViewById(R.id.identifiant);
         this.edt_password = findViewById(R.id.password);
@@ -47,7 +47,7 @@ public class AuthentificatorActivity extends MyAppCompatActivity {
 
 
                 mAuth.signInWithEmailAndPassword(edt_email.getText().toString(), edt_password.getText().toString())
-                        .addOnCompleteListener(AuthentificatorActivity.this, new OnCompleteListener<AuthResult>() {
+                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
 
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -57,13 +57,13 @@ public class AuthentificatorActivity extends MyAppCompatActivity {
 
                                     FirebaseUser user = mAuth.getCurrentUser();
 
-                                    Intent i = new Intent(AuthentificatorActivity.this, VisitorIndexActivity.class);
+                                    Intent i = new Intent(MainActivity.this, VisitorIndexActivity.class);
                                     startActivity(i);
 
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Log.w("FIREB", "signInWithEmail:failure", task.getException());
-                                    Toast.makeText(AuthentificatorActivity.this, "Email ou mot de passe faux.",
+                                    Toast.makeText(MainActivity.this, "Email ou mot de passe faux.",
                                             Toast.LENGTH_SHORT).show();
                                 }
 

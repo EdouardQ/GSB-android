@@ -38,7 +38,7 @@ public class VisitorIndexActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent connexion = new Intent(VisitorIndexActivity.this, AuthentificatorActivity.class);
+                Intent connexion = new Intent(VisitorIndexActivity.this, MainActivity.class);
                 startActivity(connexion);
             }
         });

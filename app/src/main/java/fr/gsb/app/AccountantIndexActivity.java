@@ -30,7 +30,7 @@ public class AccountantIndexActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent connexion = new Intent(AccountantIndexActivity.this, AuthentificatorActivity.class);
+                Intent connexion = new Intent(AccountantIndexActivity.this, MainActivity.class);
                 startActivity(connexion);
             }
         });

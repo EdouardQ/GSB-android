@@ -28,7 +28,7 @@ public class AccountantProfilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent connexion = new Intent(AccountantProfilActivity.this, AuthentificatorActivity.class);
+                Intent connexion = new Intent(AccountantProfilActivity.this, MainActivity.class);
                 startActivity(connexion);
             }
         });

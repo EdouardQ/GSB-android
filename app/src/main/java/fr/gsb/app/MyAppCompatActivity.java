@@ -23,7 +23,7 @@ public class MyAppCompatActivity extends AppCompatActivity {
         Security.insertProviderAt(Conscrypt.newProvider(), 1);
 
         if(FirebaseAuth.getInstance().getCurrentUser()==null){
-            Intent i = new Intent(getApplicationContext(), AuthentificatorActivity.class);
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
             finish();
         }
