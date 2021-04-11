@@ -12,6 +12,9 @@ import org.conscrypt.Conscrypt;
 import java.security.Security;
 
 public class MyAppCompatActivity extends AppCompatActivity {
+    private String name;
+    private String firstName;
+    private String role;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,5 +27,29 @@ public class MyAppCompatActivity extends AppCompatActivity {
             startActivity(i);
             finish();
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
