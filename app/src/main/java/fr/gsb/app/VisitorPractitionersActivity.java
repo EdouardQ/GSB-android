@@ -1,4 +1,4 @@
-package com.example.gsb;
+package fr.gsb.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Menu_visiteurActivity extends AppCompatActivity {
+public class VisitorPractitionersActivity extends AppCompatActivity {
 
     private Button btn_dcnx;
     private Button btn_praticien;
@@ -22,7 +22,7 @@ public class Menu_visiteurActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_visiteur);
+        setContentView(R.layout.visitor_practitioners);
 
         btn_dcnx = findViewById(R.id.deconnexion);
         btn_praticien = findViewById(R.id.praticien);
@@ -33,32 +33,21 @@ public class Menu_visiteurActivity extends AppCompatActivity {
 
         Intent i_recu = getIntent();
         String ident_recu = i_recu.getStringExtra("ident");
-        tv_ident.setText("Visiteur: " + ident_recu);
+        tv_ident.setText(ident_recu);
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent connexion = new Intent(Menu_visiteurActivity.this, MainActivity.class);
+                Intent connexion = new Intent(VisitorPractitionersActivity.this, MainActivity.class);
                 startActivity(connexion);
             }
         });
-
-        btn_praticien.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
-                Intent praticien = new Intent(Menu_visiteurActivity.this, PraticienActivity.class);
-                praticien.putExtra("ident", valeur);
-                startActivity(praticien);
-            }
-        });
-
         btn_rdv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String valeur = tv_ident.getText().toString();
-                Intent rdv = new Intent(Menu_visiteurActivity.this, RdvActivity.class);
+                Intent rdv = new Intent(VisitorPractitionersActivity.this, VisitorCalendarActivity.class);
                 rdv.putExtra("ident", valeur);
                 startActivity(rdv);
             }
@@ -68,7 +57,7 @@ public class Menu_visiteurActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String valeur = tv_ident.getText().toString();
-                Intent frais = new Intent(Menu_visiteurActivity.this, Frais_vActivity.class);
+                Intent frais = new Intent(VisitorPractitionersActivity.this, VisitorBundleMonthlyActivity.class);
                 frais.putExtra("ident", valeur);
                 startActivity(frais);
             }
@@ -78,12 +67,11 @@ public class Menu_visiteurActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String valeur = tv_ident.getText().toString();
-                Intent profil = new Intent(Menu_visiteurActivity.this, ProfilActivity.class);
+                Intent profil = new Intent(VisitorPractitionersActivity.this, VisitorProfilActivity.class);
                 profil.putExtra("ident", valeur);
                 startActivity(profil);
             }
         });
-
 
     }
 }

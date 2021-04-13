@@ -1,5 +1,4 @@
-package com.example.gsb;
-
+package fr.gsb.app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,7 +9,7 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Frais_vActivity extends AppCompatActivity {
+public class VisitorIndexActivity extends AppCompatActivity {
 
     private Button btn_dcnx;
     private Button btn_praticien;
@@ -22,7 +21,7 @@ public class Frais_vActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_frais_v);
+        setContentView(R.layout.visitor_index);
 
         btn_dcnx = findViewById(R.id.deconnexion);
         btn_praticien = findViewById(R.id.praticien);
@@ -31,23 +30,24 @@ public class Frais_vActivity extends AppCompatActivity {
         btn_profil = findViewById(R.id.profil);
         tv_ident = findViewById(R.id.tv_ident);
 
-         Intent i_recu = getIntent();
-         String ident_recu = i_recu.getStringExtra("ident");
-         tv_ident.setText(ident_recu);
+        Intent i_recu = getIntent();
+        String ident_recu = i_recu.getStringExtra("ident");
+        tv_ident.setText("Visiteur: " + ident_recu);
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent connexion = new Intent(Frais_vActivity.this, MainActivity.class);
+                Intent connexion = new Intent(VisitorIndexActivity.this, MainActivity.class);
                 startActivity(connexion);
             }
         });
+
         btn_praticien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String valeur = tv_ident.getText().toString();
-                Intent praticien = new Intent(Frais_vActivity.this, PraticienActivity.class);
+                Intent praticien = new Intent(VisitorIndexActivity.this, VisitorPractitionersActivity.class);
                 praticien.putExtra("ident", valeur);
                 startActivity(praticien);
             }
@@ -57,19 +57,32 @@ public class Frais_vActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String valeur = tv_ident.getText().toString();
-                Intent rdv = new Intent(Frais_vActivity.this, RdvActivity.class);
+                Intent rdv = new Intent(VisitorIndexActivity.this, VisitorCalendarActivity.class);
                 rdv.putExtra("ident", valeur);
                 startActivity(rdv);
             }
         });
+
+        btn_frais.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String valeur = tv_ident.getText().toString();
+                Intent frais = new Intent(VisitorIndexActivity.this, VisitorBundleMonthlyActivity.class);
+                frais.putExtra("ident", valeur);
+                startActivity(frais);
+            }
+        });
+
         btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String valeur = tv_ident.getText().toString();
-                Intent profil = new Intent(Frais_vActivity.this, ProfilActivity.class);
+                Intent profil = new Intent(VisitorIndexActivity.this, VisitorProfilActivity.class);
                 profil.putExtra("ident", valeur);
                 startActivity(profil);
             }
         });
+
+
     }
 }

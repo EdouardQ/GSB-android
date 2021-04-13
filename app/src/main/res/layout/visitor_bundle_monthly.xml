@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfilActivity"
+    tools:context=".VisitorBundleMonthlyActivity"
     android:orientation="vertical">
 
     <LinearLayout
@@ -49,36 +49,41 @@
             android:layout_height="wrap_content"
             android:id="@+id/frais"
             android:layout_weight="0.25"
-            android:text="Frais"/>
+            android:text="Frais"
+            android:backgroundTint="#1C41C6"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/profil"
             android:layout_weight="0.25"
-            android:text="Profil"
-            android:backgroundTint="#1C41C6"/>
+            android:text="Profil"/>
 
     </LinearLayout>
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:src="@color/grey"
+        android:layout_marginTop="15dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginHorizontal="25dp">
+        android:layout_marginHorizontal="40dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginVertical="20dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nom:"/>
+                android:text="Année:"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
+                android:inputType="numberDecimal"
                 android:layout_marginHorizontal="25dp"
-                android:singleLine="true"
                 />
         </LinearLayout>
 
@@ -89,67 +94,60 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Prénom:"/>
+                android:text="Mois:"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:layout_marginHorizontal="25dp"
-                android:singleLine="true"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="20dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Identifiant:"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:layout_marginHorizontal="25dp"
-                android:singleLine="true"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="20dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mot de passe:"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:layout_marginHorizontal="25dp"
-                android:singleLine="true"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="20dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Téléphone:"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="phone"
+                android:inputType=""
                 android:layout_marginHorizontal="25dp"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KM parcouru:"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:layout_marginHorizontal="25dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Autre frais:"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:layout_marginHorizontal="25dp"/>
+        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ajouter"
+            android:layout_marginHorizontal="100dp"
+            android:layout_marginBottom="15dp"/>
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:src="@color/grey"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Sauvegarder"
-        android:layout_marginHorizontal="125dp"
-        android:layout_marginVertical="75dp"/>
+        android:text="Liste des frais"
+        android:layout_marginHorizontal="110dp"
+        android:layout_marginVertical="75dp"
+        />
 </LinearLayout>

@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RdvActivity"
+    tools:context=".AccountantIndexActivity"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#5670CC">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_ident"
-            android:textSize="20dp"/>
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:text="Comptable:"/>
         <Button
             android:id="@+id/deconnexion"
             android:layout_width="wrap_content"
@@ -30,37 +33,46 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="50dp"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gestion: "
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="50dp"
+            android:layout_marginVertical="40dp"/>
 
         <Button
+            android:id="@+id/validation_frais"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/praticien"
-            android:layout_weight="0.22"
-            android:text="Praticiens" />
+            android:text="Frais visiteur"
+            android:layout_marginVertical="30dp"
+            android:textSize="25dp"/>
+
         <Button
+            android:id="@+id/frais_mois"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/rdv"
-            android:layout_weight="0.25"
-            android:text="RDV"
-            android:backgroundTint="#1C41C6"/>
+            android:text="Frais du mois"
+            android:layout_marginVertical="30dp"
+            android:textSize="25dp"/>
+
         <Button
+            android:id="@+id/profil_compt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/frais"
-            android:layout_weight="0.25"
-            android:text="Frais"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/profil"
-            android:layout_weight="0.25"
-            android:text="Profil"/>
+            android:text="Profil"
+            android:layout_marginVertical="30dp"
+            android:textSize="25dp"
+            />
+
 
     </LinearLayout>
-    <DatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"/>
-</LinearLayout>
+
+  </LinearLayout>
