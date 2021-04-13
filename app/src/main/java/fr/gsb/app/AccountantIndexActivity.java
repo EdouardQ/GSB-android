@@ -54,7 +54,7 @@ public class AccountantIndexActivity extends AppCompatActivity {
         btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent profil = new Intent(AccountantIndexActivity.this, Profil_comptActivity.class);
+                Intent profil = new Intent(AccountantIndexActivity.this, AccountantProfilActivity.class);
                 startActivity(profil);
             }
         });

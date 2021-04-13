@@ -43,7 +43,7 @@ public class AccountantListExpenseFormLeftActivity extends AppCompatActivity {
         btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent profil = new Intent(AccountantListExpenseFormLeftActivity.this, Profil_comptActivity.class);
+                Intent profil = new Intent(AccountantListExpenseFormLeftActivity.this, AccountantProfilActivity.class);
                 startActivity(profil);
             }
         });

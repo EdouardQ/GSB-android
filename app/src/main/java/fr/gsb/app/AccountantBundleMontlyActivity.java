@@ -44,7 +44,7 @@ public class AccountantBundleMontlyActivity extends AppCompatActivity {
         btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent profil = new Intent(AccountantBundleMontlyActivity.this, Profil_comptActivity.class);
+                Intent profil = new Intent(AccountantBundleMontlyActivity.this, AccountantProfilActivity.class);
                 startActivity(profil);
             }
         });
