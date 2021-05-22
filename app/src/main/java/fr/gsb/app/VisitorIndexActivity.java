@@ -41,7 +41,7 @@ public class VisitorIndexActivity extends AppCompatActivity {
         Intent i_recu = getIntent();
         String userId = i_recu.getStringExtra("userId");
 
-        DocumentReference docRef = db.collection("user").document(userId);
+        DocumentReference docRef = db.collection("users").document(userId);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
