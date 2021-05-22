@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class AccountantProfilActivity extends MyAppCompatActivity {
+public class AccountantProfilActivity extends AppCompatActivity {
 
     private Button btn_dcnx;
     private Button btn_val_frais;

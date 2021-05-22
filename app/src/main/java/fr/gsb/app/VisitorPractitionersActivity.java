@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class VisitorPractitionersActivity extends MyAppCompatActivity {
+public class VisitorPractitionersActivity extends AppCompatActivity {
 
     private Button btn_dcnx;
     private Button btn_praticien;

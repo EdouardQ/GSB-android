@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -15,7 +16,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class VisitorIndexActivity extends AccountantIndexActivity {
+public class VisitorIndexActivity extends AppCompatActivity {
 
     private Button btn_dcnx;
     private Button btn_praticien;
@@ -51,7 +52,7 @@ public class VisitorIndexActivity extends AccountantIndexActivity {
                 }
             }
         });
-        
+
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
