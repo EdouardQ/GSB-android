@@ -72,9 +72,6 @@ public class MainActivity extends MyAppCompatActivity {
                                         }
                                     });
 
-
-
-
                                     Intent i = new Intent(MainActivity.this, VisitorIndexActivity.class);
                                     startActivity(i);
 
