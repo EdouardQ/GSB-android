@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         this.btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //message d'erreur si champ vide
                 if (edt_email.getText().length()==0 || edt_password.getText().length()==0){
                     Log.w("FIREB", "signInWithEmail:failure champs vide");
                     Toast.makeText(MainActivity.this, "Email ou mot de passe faux.",
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> taskGetUser) {
                                     if (taskGetUser.isSuccessful()) {
-                                        // Sign in success
+                                        // Succès de connexion
                                         Log.d("FIREB", "signInWithEmail:success");
 
                                         FirebaseUser user = mAuth.getCurrentUser();
@@ -82,12 +82,14 @@ public class MainActivity extends AppCompatActivity {
                                                         //Log.d("FIREC", "DocumentSnapshot data: " + document.getData());
 
                                                         User userFC = new User(document);
-
+                                                        //envoi vers le menu visiteur avec les infos visiteur
                                                         if (userFC.getRole().equals("visitor")) {
                                                             Intent iVisitor = new Intent(MainActivity.this, VisitorIndexActivity.class);
                                                             iVisitor.putExtra("userId", userFC.getId());
                                                             startActivity(iVisitor);
-                                                        } else if (userFC.getRole().equals("accountant")) {
+                                                        }
+                                                        //envoi vers le menu comptable avec les infos comptable
+                                                        else if (userFC.getRole().equals("accountant")) {
                                                             Intent iAccountant = new Intent(MainActivity.this, AccountantIndexActivity.class);
                                                             iAccountant.putExtra("userId", userFC.getId());
                                                             startActivity(iAccountant);
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                                     } else {
-                                        // If sign in fails, display a message to the user.
+                                        // Message erreur de login.
                                         Log.w("FIREB", "signInWithEmail:failure", taskGetUser.getException());
                                         Toast.makeText(MainActivity.this, "Email ou mot de passe faux.",
                                                 Toast.LENGTH_SHORT).show();
