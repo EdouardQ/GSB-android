@@ -29,6 +29,10 @@ public class MainActivity extends MyAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
+        if(FirebaseAuth.getInstance().getCurrentUser()!=null){
+            FirebaseAuth.getInstance().signOut();
+        }
+
         this.edt_email = findViewById(R.id.identifiant);
         this.edt_password = findViewById(R.id.password);
         this.btn_login = findViewById(R.id.connexion);

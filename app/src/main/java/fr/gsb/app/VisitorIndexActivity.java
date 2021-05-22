@@ -6,11 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.firebase.auth.FirebaseAuth;
 
-public class VisitorIndexActivity extends AppCompatActivity {
+public class VisitorIndexActivity extends MyAppCompatActivity {
 
     private Button btn_dcnx;
     private Button btn_praticien;
@@ -20,7 +18,7 @@ public class VisitorIndexActivity extends AppCompatActivity {
     private TextView tv_ident;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.visitor_index);
 
@@ -32,8 +30,10 @@ public class VisitorIndexActivity extends AppCompatActivity {
         tv_ident = findViewById(R.id.tv_ident);
 
         Intent i_recu = getIntent();
-        String ident_recu = i_recu.getStringExtra("ident");
-        tv_ident.setText("Visiteur: " + ident_recu);
+        //String ident_recu = i_recu.getStringExtra("ident");
+        //tv_ident.setText("Visiteur: " + ident_recu);
+        tv_ident.setText("Visiteur: " + getName() + " " + getFirstName());
+
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
