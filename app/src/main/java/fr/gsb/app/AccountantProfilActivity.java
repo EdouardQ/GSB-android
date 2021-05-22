@@ -9,14 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class AccountantProfilActivity extends AppCompatActivity {
+public class AccountantProfilActivity extends MyAppCompatActivity {
 
     private Button btn_dcnx;
     private Button btn_val_frais;
     private Button btn_frais_mois;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.accountant_profil);
 
