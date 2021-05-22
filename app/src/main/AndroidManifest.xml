@@ -26,4 +26,5 @@
         <activity android:name=".AccountantListExpenseFormLeftActivity"></activity>
         <activity android:name=".AccountantProfilActivity"></activity>
     </application>
+
 </manifest>
