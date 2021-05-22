@@ -1,22 +1,18 @@
 package fr.gsb.app;
 
-import android.os.Bundle;
+import com.google.firebase.firestore.DocumentSnapshot;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import org.conscrypt.Conscrypt;
-
-import java.security.Security;
-
-public class MyAppCompatActivity extends AppCompatActivity {
+public class User {
+    private String id;
     private String name;
     private String firstName;
     private String role;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Security.insertProviderAt(Conscrypt.newProvider(), 1);
+    public User(DocumentSnapshot document) {
+        this.id = document.getId();
+        this.name = document.getString("name");
+        this.firstName = document.getString("firstName");
+        this.role = document.getString("role");
     }
 
     public String getName() {
@@ -29,6 +25,14 @@ public class MyAppCompatActivity extends AppCompatActivity {
 
     public String getFirstName() {
         return firstName;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setFirstName(String firstName) {

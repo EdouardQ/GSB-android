@@ -6,9 +6,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
+import androidx.annotation.NonNull;
 
-public class VisitorIndexActivity extends MyAppCompatActivity {
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+public class VisitorIndexActivity extends AccountantIndexActivity {
 
     private Button btn_dcnx;
     private Button btn_praticien;
@@ -21,6 +28,7 @@ public class VisitorIndexActivity extends MyAppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.visitor_index);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         btn_dcnx = findViewById(R.id.deconnexion);
         btn_praticien = findViewById(R.id.praticien);
@@ -30,10 +38,20 @@ public class VisitorIndexActivity extends MyAppCompatActivity {
         tv_ident = findViewById(R.id.tv_ident);
 
         Intent i_recu = getIntent();
-        //String ident_recu = i_recu.getStringExtra("ident");
-        //tv_ident.setText("Visiteur: " + ident_recu);
-        tv_ident.setText("Visiteur: " + getName() + " " + getFirstName());
+        String userId = i_recu.getStringExtra("userId");
 
+        DocumentReference docRef = db.collection("user").document(userId);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    User userFC = new User(task.getResult());
+
+                    tv_ident.setText("Visiteur: " + userFC.getName() + " " + userFC.getFirstName());
+                }
+            }
+        });
+        
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
