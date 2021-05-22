@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class VisitorPractitionersActivity extends AppCompatActivity {
+public class VisitorPractitionersActivity extends MyAppCompatActivity {
 
     private Button btn_dcnx;
     private Button btn_praticien;
@@ -20,7 +20,7 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
     private TextView tv_ident;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.visitor_practitioners);
 
