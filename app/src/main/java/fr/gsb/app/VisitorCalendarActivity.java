@@ -31,9 +31,9 @@ public class VisitorCalendarActivity extends AppCompatActivity {
         btn_profil = findViewById(R.id.profil);
         tv_ident = findViewById(R.id.tv_ident);
 
-         Intent i_recu = getIntent();
-         String ident_recu = i_recu.getStringExtra("ident");
-         tv_ident.setText(ident_recu);
+        Intent i_recu = getIntent();
+        String ident_recu = i_recu.getStringExtra("ident");
+        tv_ident.setText(ident_recu);
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override

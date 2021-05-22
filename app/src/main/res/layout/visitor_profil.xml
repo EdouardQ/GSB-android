@@ -31,7 +31,7 @@
                 android:layout_marginRight="5dp"
                 android:singleLine="true"
                 android:text="Deconnexion"
-                android:textSize="15dp"/>
+                android:textSize="12dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,24 +42,32 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/praticien"
                 android:layout_weight="0.22"
+                android:singleLine="true"
+                android:textSize="12dp"
                 android:text="Praticiens"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/rdv"
                 android:layout_weight="0.25"
+                android:singleLine="true"
+                android:textSize="12dp"
                 android:text="RDV"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/frais"
                 android:layout_weight="0.25"
+                android:singleLine="true"
+                android:textSize="12dp"
                 android:text="Frais"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/profil"
                 android:layout_weight="0.25"
+                android:singleLine="true"
+                android:textSize="12dp"
                 android:text="Profil"
                 android:backgroundTint="#1C41C6"/>
 
@@ -152,10 +160,13 @@
 
         </LinearLayout>
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Sauvegarder"
-            android:layout_marginHorizontal="125dp"
-            android:layout_marginVertical="75dp"/>
+            android:layout_marginVertical="75dp"
+            android:singleLine="true"
+            android:textSize="12dp"
+            android:layout_gravity="center_horizontal|bottom"
+            />
     </LinearLayout>
 </ScrollView>

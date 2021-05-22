@@ -31,7 +31,7 @@
                 android:layout_marginRight="5dp"
                 android:singleLine="true"
                 android:text="Deconnexion"
-                android:textSize="15dp"/>
+                android:textSize="12dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,25 +42,33 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/praticien"
                 android:layout_weight="0.22"
+                android:singleLine="true"
+                android:textSize="12dp"
                 android:text="Praticiens"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/rdv"
                 android:layout_weight="0.25"
+                android:singleLine="true"
+                android:textSize="12dp"
                 android:text="RDV"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/frais"
                 android:layout_weight="0.25"
+                android:singleLine="true"
                 android:text="Frais"
+                android:textSize="12dp"
                 android:backgroundTint="#1C41C6"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/profil"
                 android:layout_weight="0.25"
+                android:singleLine="true"
+                android:textSize="12dp"
                 android:text="Profil"/>
 
         </LinearLayout>
@@ -136,12 +144,16 @@
                     android:inputType="date"
                     android:layout_marginHorizontal="25dp"/>
             </LinearLayout>
+
             <Button
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:singleLine="true"
                 android:text="Ajouter"
-                android:layout_marginHorizontal="100dp"
-                android:layout_marginBottom="15dp"/>
+                android:textSize="12dp"
+                android:layout_gravity="center_horizontal|bottom"
+                />
         </LinearLayout>
 
         <ImageView
@@ -149,11 +161,13 @@
             android:layout_height="1dp"
             android:src="@color/grey"/>
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Liste des frais"
-            android:layout_marginHorizontal="110dp"
+            android:layout_gravity="center_horizontal|bottom"
             android:layout_marginVertical="75dp"
+            android:singleLine="true"
+            android:textSize="12dp"
             />
     </LinearLayout>
 </ScrollView>

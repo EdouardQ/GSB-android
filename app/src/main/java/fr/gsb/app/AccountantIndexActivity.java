@@ -48,7 +48,7 @@ public class AccountantIndexActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     User userFC = new User(task.getResult());
 
-                    tv_ident.setText("Visiteur: " + userFC.getName() + " " + userFC.getFirstName());
+                    tv_ident.setText(userFC.getName() + " " + userFC.getFirstName());
                 }
             }
         });

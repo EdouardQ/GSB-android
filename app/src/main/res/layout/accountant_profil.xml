@@ -31,7 +31,7 @@
                 android:layout_marginRight="5dp"
                 android:singleLine="true"
                 android:text="Deconnexion"
-                android:textSize="15dp"/>
+                android:textSize="12dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,20 +43,29 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/validation_frais"
                 android:layout_weight="0.2"
-                android:text="Frais visiteur"/>
+                android:text="Frais visiteur"
+                android:singleLine="true"
+                android:textSize="12dp"
+                />
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/frais_mois"
                 android:layout_weight="0.2"
-                android:text="Frais Mois"/>
+                android:text="Frais Mois"
+                android:singleLine="true"
+                android:textSize="12dp"
+                />
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/profil_compt"
                 android:layout_weight="0.25"
                 android:text="Profil"
-                android:backgroundTint="#1C41C6"/>
+                android:backgroundTint="#1C41C6"
+                android:singleLine="true"
+                android:textSize="12dp"
+                />
 
         </LinearLayout>
         <LinearLayout
@@ -146,11 +155,12 @@
 
         </LinearLayout>
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Sauvegarder"
-            android:layout_marginHorizontal="125dp"
-            android:layout_marginVertical="75dp"/>
+            android:layout_marginVertical="75dp"
+            android:layout_gravity="center_horizontal|bottom"
+            />
 
     </LinearLayout>
 </ScrollView>
