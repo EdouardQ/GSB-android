@@ -8,57 +8,55 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/gsb"
-        android:layout_marginTop="40dp"
-        android:layout_marginHorizontal="100dp"
-        />
-
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="70dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/identifiant"
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Identifiant"
-            android:textSize="30dp"
-            android:gravity="center_horizontal"
-            android:singleLine="true"
-            />
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Mot de passe"
-            android:textSize="30dp"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="50dp"
-            android:singleLine="true"
-            android:inputType="textPassword"
-            />
-
-        <Button
-            android:id="@+id/connexion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:src="@drawable/gsb"
             android:layout_marginTop="40dp"
-            android:text="Connexion"
+            android:layout_marginHorizontal="100dp"
             />
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="70dp"
+            android:orientation="vertical">
 
-</LinearLayout>
+            <EditText
+                android:id="@+id/identifiant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Identifiant"
+                android:textSize="30dp"
+                android:gravity="center_horizontal"
+                android:singleLine="true"
+                />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mot de passe"
+                android:textSize="30dp"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                />
+
+            <Button
+                android:id="@+id/connexion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Connexion"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
 </ScrollView>

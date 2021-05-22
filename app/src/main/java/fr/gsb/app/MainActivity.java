@@ -51,65 +51,70 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                mAuth.signInWithEmailAndPassword(edt_email.getText().toString(), edt_password.getText().toString())
-                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> taskGetUser) {
-                                if (taskGetUser.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-                                    Log.d("FIREB", "signInWithEmail:success");
-
-                                    FirebaseUser user = mAuth.getCurrentUser();
-
-                                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                if (edt_email.getText().length()==0 || edt_password.getText().length()==0){
+                    Log.w("FIREB", "signInWithEmail:failure champs vide");
+                    Toast.makeText(MainActivity.this, "Email ou mot de passe faux.",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else {
 
 
-                                    DocumentReference docRef = db.collection("user").document(user.getEmail());
-                                    docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                            if (task.isSuccessful()) {
-                                                DocumentSnapshot document = task.getResult();
-                                                if (document.exists()) {
-                                                    Log.d("FIREC", "DocumentSnapshot data: " + document.getData());
+                    mAuth.signInWithEmailAndPassword(edt_email.getText().toString(), edt_password.getText().toString())
+                            .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
 
-                                                    User userFC = new User(document);
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> taskGetUser) {
+                                    if (taskGetUser.isSuccessful()) {
+                                        // Sign in success
+                                        Log.d("FIREB", "signInWithEmail:success");
 
-                                                    //Log.d("test", userFC.getRole());
+                                        FirebaseUser user = mAuth.getCurrentUser();
 
-                                                    /*if (getRole()=="visitor"){
-                                                        Intent iVisitor = new Intent(MainActivity.this, VisitorIndexActivity.class);
-                                                        startActivity(iVisitor);
+                                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+                                        DocumentReference docRef = db.collection("user").document(user.getEmail());
+                                        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                if (task.isSuccessful()) {
+                                                    DocumentSnapshot document = task.getResult();
+                                                    if (document.exists()) {
+                                                        //Log.d("FIREC", "DocumentSnapshot data: " + document.getData());
+
+                                                        User userFC = new User(document);
+
+                                                        if (userFC.getRole().equals("visitor")) {
+                                                            Intent iVisitor = new Intent(MainActivity.this, VisitorIndexActivity.class);
+                                                            iVisitor.putExtra("userId", userFC.getId());
+                                                            startActivity(iVisitor);
+                                                        } else if (userFC.getRole().equals("accountant")) {
+                                                            Intent iAccountant = new Intent(MainActivity.this, AccountantIndexActivity.class);
+                                                            iAccountant.putExtra("userId", userFC.getId());
+                                                            startActivity(iAccountant);
+                                                        }
+                                                        /*Intent i = new Intent(MainActivity.this, VisitorIndexActivity.class);
+                                                        i.putExtra("userId", userFC.getId());
+                                                        startActivity(i);*/
+
+                                                    } else {
+                                                        Log.d("FIREC", "No such document");
                                                     }
-                                                    else if (getRole()=="accountant"){
-                                                        Intent iAcc = new Intent(MainActivity.this, AccountantIndexActivity.class);
-                                                        startActivity(iAcc);
-                                                    }*/
-                                                    Intent i = new Intent(MainActivity.this, VisitorIndexActivity.class);
-                                                    i.putExtra("userId", userFC.getId());
-                                                    startActivity(i);
-
                                                 } else {
-                                                    Log.d("FIREC", "No such document");
+                                                    Log.d("FIREC", "get failed with ", task.getException());
                                                 }
-                                            } else {
-                                                Log.d("FIREC", "get failed with ", task.getException());
                                             }
-                                        }
-                                    });
+                                        });
 
 
-
-                                } else {
-                                    // If sign in fails, display a message to the user.
-                                    Log.w("FIREB", "signInWithEmail:failure", taskGetUser.getException());
-                                    Toast.makeText(MainActivity.this, "Email ou mot de passe faux.",
-                                            Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        // If sign in fails, display a message to the user.
+                                        Log.w("FIREB", "signInWithEmail:failure", taskGetUser.getException());
+                                        Toast.makeText(MainActivity.this, "Email ou mot de passe faux.",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-
-                            }
-                        });
+                            });
+                }
             }
         });
 

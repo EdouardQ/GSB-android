@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,73 +8,79 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#5670CC">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_ident"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"/>
-        <Button
-            android:id="@+id/deconnexion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="5dp"
-            android:singleLine="true"
-            android:text="Deconnexion"
-            android:textSize="15dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="50dp"
         android:orientation="vertical"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gestion: "
-            android:textAlignment="center"
-            android:gravity="center_horizontal"
-            android:textSize="50dp"
-            android:layout_marginVertical="40dp"/>
+            android:orientation="horizontal"
+            android:background="#5670CC">
 
-        <Button
-            android:id="@+id/praticien"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_ident"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"/>
+            <Button
+                android:id="@+id/deconnexion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="5dp"
+                android:singleLine="true"
+                android:text="Deconnexion"
+                android:textSize="15dp"/>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Praticiens"
-            android:layout_marginVertical="30dp"
-            android:textSize="25dp"/>
-        <Button
-            android:id="@+id/rdv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Rendez-vous"
-            android:layout_marginVertical="30dp"
-            android:textSize="25dp"/>
-        <Button
-            android:id="@+id/frais"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Frais"
-            android:layout_marginVertical="30dp"
-            android:textSize="25dp"/>
-        <Button
-            android:id="@+id/profil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Profil"
-            android:layout_marginVertical="30dp"
-            android:textSize="25dp"/>
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="50dp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gestion: "
+                android:textAlignment="center"
+                android:gravity="center_horizontal"
+                android:textSize="50dp"
+                android:layout_marginVertical="40dp"/>
+
+            <Button
+                android:id="@+id/praticien"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Praticiens"
+                android:layout_marginVertical="30dp"
+                android:textSize="25dp"/>
+            <Button
+                android:id="@+id/rdv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rendez-vous"
+                android:layout_marginVertical="30dp"
+                android:textSize="25dp"/>
+            <Button
+                android:id="@+id/frais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Frais"
+                android:layout_marginVertical="30dp"
+                android:textSize="25dp"/>
+            <Button
+                android:id="@+id/profil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Profil"
+                android:layout_marginVertical="30dp"
+                android:textSize="25dp"/>
 
 
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
