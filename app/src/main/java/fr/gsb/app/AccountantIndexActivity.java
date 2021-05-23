@@ -65,7 +65,9 @@ public class AccountantIndexActivity extends AppCompatActivity {
         btn_val_frais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String valeur = tv_ident.getText().toString();
                 Intent val_frais = new Intent(AccountantIndexActivity.this, AccountantListExpenseFormLeftActivity.class);
+                val_frais.putExtra("ident", valeur);
                 startActivity(val_frais);
             }
         });
@@ -73,7 +75,9 @@ public class AccountantIndexActivity extends AppCompatActivity {
         btn_frais_mois.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String valeur = tv_ident.getText().toString();
                 Intent frais_mois = new Intent(AccountantIndexActivity.this, AccountantBundleMontlyActivity.class);
+                frais_mois.putExtra("ident", valeur);
                 startActivity(frais_mois);
             }
         });
@@ -81,7 +85,9 @@ public class AccountantIndexActivity extends AppCompatActivity {
         btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String valeur = tv_ident.getText().toString();
                 Intent profil = new Intent(AccountantIndexActivity.this, AccountantProfilActivity.class);
+                profil.putExtra("ident", valeur);
                 startActivity(profil);
             }
         });
