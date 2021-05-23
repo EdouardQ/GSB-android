@@ -2,13 +2,24 @@ package fr.gsb.app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class VisitorPractitionersActivity extends AppCompatActivity {
 
@@ -18,6 +29,7 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
     private Button btn_frais;
     private Button btn_profil;
     private TextView tv_ident;
+    private ListView lv_practitioners;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,10 +42,18 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
         btn_frais = findViewById(R.id.frais);
         btn_profil = findViewById(R.id.profil);
         tv_ident = findViewById(R.id.tv_ident);
+        lv_practitioners = findViewById(R.id.lv_practitioner);
 
         Intent i_recu = getIntent();
         String ident_recu = i_recu.getStringExtra("ident");
         tv_ident.setText(ident_recu);
+
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        PractititionerAdapter pracAdap = new PractititionerAdapter(VisitorPractitionersActivity.this ,getDatas());
+
+        lv_practitioners.setAdapter(pracAdap);
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,5 +93,26 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public List<Practitioner> getDatas(){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        ArrayList<Practitioner> result = new ArrayList<>();
+        db.collection("practitioners")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("FIREC", document.getId() + " => " + document.getData());
+                                result.add(new Practitioner(document));
+                            }
+                        } else {
+                            Log.d("FIREC", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+        return result;
     }
 }
