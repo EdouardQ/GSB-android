@@ -19,6 +19,7 @@
         <activity android:name=".VisitorIndexActivity"></activity>
         <activity android:name=".VisitorBundleMonthlyActivity"></activity>
         <activity android:name=".VisitorCalendarActivity"></activity>
+        <activity android:name=".VisitorCalendarDateDetailActivity"></activity>
         <activity android:name=".VisitorPractitionersActivity"></activity>
         <activity android:name=".VisitorProfilActivity"></activity>
         <activity android:name=".AccountantIndexActivity"></activity>
