@@ -3,8 +3,13 @@ package fr.gsb.app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,9 +32,11 @@ public class AccountantListExpenseFormLeftActivity extends AppCompatActivity {
         btn_profil = findViewById(R.id.profil_compt);
         tv_ident = findViewById(R.id.tv_ident);
 
+        //récupère les infos pour le nom prénom
         Intent i_recu = getIntent();
         String ident_recu = i_recu.getStringExtra("ident");
         tv_ident.setText(ident_recu);
+        
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
