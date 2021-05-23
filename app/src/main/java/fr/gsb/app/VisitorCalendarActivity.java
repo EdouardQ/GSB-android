@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +18,10 @@ public class VisitorCalendarActivity extends AppCompatActivity {
     private Button btn_rdv;
     private Button btn_frais;
     private Button btn_profil;
+    private Button btn_add_rdv;
+    private Button btn_consult_rdv;
     private TextView tv_ident;
+    private DatePicker dp_agenda;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,7 +33,10 @@ public class VisitorCalendarActivity extends AppCompatActivity {
         btn_rdv = findViewById(R.id.rdv);
         btn_frais = findViewById(R.id.frais);
         btn_profil = findViewById(R.id.profil);
+        btn_add_rdv = findViewById(R.id.btn_add_rdv);
+        btn_consult_rdv = findViewById(R.id.btn_consult_rdv);
         tv_ident = findViewById(R.id.tv_ident);
+        dp_agenda = findViewById(R.id.dp_agenda);
 
         Intent i_recu = getIntent();
         String ident_recu = i_recu.getStringExtra("ident");
@@ -69,6 +76,16 @@ public class VisitorCalendarActivity extends AppCompatActivity {
                 Intent profil = new Intent(VisitorCalendarActivity.this, VisitorProfilActivity.class);
                 profil.putExtra("ident", valeur);
                 startActivity(profil);
+            }
+        });
+
+        btn_add_rdv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                long valeur = dp_agenda.getMinDate();
+                Intent add_rdv = new Intent(VisitorCalendarActivity.this, VisitorCalendarDateDetailActivity.class);
+                add_rdv.putExtra("rdv", valeur);
+                startActivity(add_rdv);
             }
         });
     }
