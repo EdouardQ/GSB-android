@@ -1,6 +1,6 @@
 package fr.gsb.app;
 
-import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 public class Practitioner {
     private String name;
@@ -14,7 +14,7 @@ public class Practitioner {
     public Practitioner() {
     }
 
-    public Practitioner(QueryDocumentSnapshot document) {
+    public Practitioner(DocumentSnapshot document) {
         this.name = document.getString("name");
         this.firstName = document.getString("firstName");
         this.address = document.getString("address");;
