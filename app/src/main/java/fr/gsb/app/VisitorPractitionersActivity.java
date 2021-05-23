@@ -30,6 +30,7 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
     private Button btn_profil;
     private TextView tv_ident;
     private ListView lv_practitioners;
+    //private ArrayList<Practitioner> practitionerArrayList = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        PractititionerAdapter pracAdap = new PractititionerAdapter(VisitorPractitionersActivity.this ,getDatas());
+        PractititionerAdapter pracAdap = new PractititionerAdapter(VisitorPractitionersActivity.this, getDatas());
 
         lv_practitioners.setAdapter(pracAdap);
 
@@ -97,7 +98,7 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
 
     public List<Practitioner> getDatas(){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        ArrayList<Practitioner> result = new ArrayList<>();
+        ArrayList<Practitioner> practitionerArrayList = new ArrayList<>();
         db.collection("practitioners")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -106,13 +107,36 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d("FIREC", document.getId() + " => " + document.getData());
-                                result.add(new Practitioner(document));
+                                practitionerArrayList.add(new Practitioner(document));
                             }
                         } else {
                             Log.d("FIREC", "Error getting documents: ", task.getException());
                         }
                     }
                 });
-        return result;
+        Practitioner practTest = new Practitioner();
+        practTest.setName("name");
+        practTest.setFirstName("firstName");
+        practTest.setCity("city");
+        practTest.setAddress("address");
+        practTest.setPostalCode("code");
+
+        practitionerArrayList.add(practTest);
+
+        Practitioner practTest2 = new Practitioner();
+        practTest2.setName("45");
+        practTest2.setFirstName("firstName");
+        practTest2.setCity("city");
+        practTest2.setAddress("address");
+        practTest2.setPostalCode("code");
+
+        practitionerArrayList.add(practTest2);
+
+        Log.d("test", practitionerArrayList.get(0).getName());
+        Log.d("test", practitionerArrayList.get(1).getName());
+        //Log.d("test", practitionerArrayList.get(2).getName());
+        //Log.d("test", practitionerArrayList.get(3).getName());
+
+        return practitionerArrayList;
     }
 }
