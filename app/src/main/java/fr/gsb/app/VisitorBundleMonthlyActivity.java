@@ -32,8 +32,8 @@ public class VisitorBundleMonthlyActivity extends AppCompatActivity {
         tv_ident = findViewById(R.id.tv_ident);
 
         Intent i_recu = getIntent();
-        String ident_recu = i_recu.getStringExtra("ident");
-        tv_ident.setText(ident_recu);
+        User currentUser = (User) i_recu.getSerializableExtra("currentUser");
+        tv_ident.setText(currentUser.getName() + " " + currentUser.getFirstName());
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,9 +46,8 @@ public class VisitorBundleMonthlyActivity extends AppCompatActivity {
         btn_praticien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent praticien = new Intent(VisitorBundleMonthlyActivity.this, VisitorPractitionersActivity.class);
-                praticien.putExtra("ident", valeur);
+                praticien.putExtra("currentUser", currentUser);
                 startActivity(praticien);
             }
         });
@@ -56,18 +55,16 @@ public class VisitorBundleMonthlyActivity extends AppCompatActivity {
         btn_rdv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent rdv = new Intent(VisitorBundleMonthlyActivity.this, VisitorCalendarActivity.class);
-                rdv.putExtra("ident", valeur);
+                rdv.putExtra("currentUser", currentUser);
                 startActivity(rdv);
             }
         });
         btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent profil = new Intent(VisitorBundleMonthlyActivity.this, VisitorProfilActivity.class);
-                profil.putExtra("ident", valeur);
+                profil.putExtra("currentUser", currentUser);
                 startActivity(profil);
             }
         });

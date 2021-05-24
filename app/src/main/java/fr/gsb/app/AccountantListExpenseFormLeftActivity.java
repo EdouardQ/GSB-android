@@ -3,13 +3,8 @@ package fr.gsb.app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,8 +29,8 @@ public class AccountantListExpenseFormLeftActivity extends AppCompatActivity {
 
         //récupère les infos pour le nom prénom
         Intent i_recu = getIntent();
-        String ident_recu = i_recu.getStringExtra("ident");
-        tv_ident.setText(ident_recu);
+        User currentUser = (User) i_recu.getSerializableExtra("currentUser");
+        tv_ident.setText(currentUser.getName() + " " + currentUser.getFirstName());
         
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
@@ -50,9 +45,8 @@ public class AccountantListExpenseFormLeftActivity extends AppCompatActivity {
         btn_frais_mois.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent frais_mois = new Intent(AccountantListExpenseFormLeftActivity.this, AccountantBundleMontlyActivity.class);
-                frais_mois.putExtra("ident", valeur);
+                frais_mois.putExtra("currentUser", currentUser);
                 startActivity(frais_mois);
             }
         });
@@ -60,9 +54,8 @@ public class AccountantListExpenseFormLeftActivity extends AppCompatActivity {
         btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent profil = new Intent(AccountantListExpenseFormLeftActivity.this, AccountantProfilActivity.class);
-                profil.putExtra("ident", valeur);
+                profil.putExtra("currentUser", currentUser);
                 startActivity(profil);
             }
         });

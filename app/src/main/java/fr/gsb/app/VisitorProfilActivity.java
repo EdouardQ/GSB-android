@@ -31,9 +31,9 @@ public class VisitorProfilActivity extends AppCompatActivity {
         btn_profil = findViewById(R.id.profil);
         tv_ident = findViewById(R.id.tv_ident);
 
-         Intent i_recu = getIntent();
-         String ident_recu = i_recu.getStringExtra("ident");
-         tv_ident.setText(ident_recu);
+        Intent i_recu = getIntent();
+        User currentUser = (User) i_recu.getSerializableExtra("currentUser");
+        tv_ident.setText(currentUser.getName() + " " + currentUser.getFirstName());
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,9 +46,8 @@ public class VisitorProfilActivity extends AppCompatActivity {
         btn_praticien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent praticien = new Intent(VisitorProfilActivity.this, VisitorPractitionersActivity.class);
-                praticien.putExtra("ident", valeur);
+                praticien.putExtra("currentUser", currentUser);
                 startActivity(praticien);
             }
         });
@@ -56,9 +55,8 @@ public class VisitorProfilActivity extends AppCompatActivity {
         btn_rdv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent rdv = new Intent(VisitorProfilActivity.this, VisitorCalendarActivity.class);
-                rdv.putExtra("ident", valeur);
+                rdv.putExtra("currentUser", currentUser);
                 startActivity(rdv);
             }
         });
@@ -66,9 +64,8 @@ public class VisitorProfilActivity extends AppCompatActivity {
         btn_frais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent frais = new Intent(VisitorProfilActivity.this, VisitorBundleMonthlyActivity.class);
-                frais.putExtra("ident", valeur);
+                frais.putExtra("currentUser", currentUser);
                 startActivity(frais);
             }
         });

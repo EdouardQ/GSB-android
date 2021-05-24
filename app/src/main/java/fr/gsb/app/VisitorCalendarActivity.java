@@ -39,8 +39,8 @@ public class VisitorCalendarActivity extends AppCompatActivity {
         dp_agenda = findViewById(R.id.dp_agenda);
 
         Intent i_recu = getIntent();
-        String ident_recu = i_recu.getStringExtra("ident");
-        tv_ident.setText(ident_recu);
+        User currentUser = (User) i_recu.getSerializableExtra("currentUser");
+        tv_ident.setText(currentUser.getName() + " " + currentUser.getFirstName());
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,18 +53,16 @@ public class VisitorCalendarActivity extends AppCompatActivity {
         btn_praticien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent praticien = new Intent(VisitorCalendarActivity.this, VisitorPractitionersActivity.class);
-                praticien.putExtra("ident", valeur);
+                praticien.putExtra("currentUser", currentUser);
                 startActivity(praticien);
             }
         });
         btn_frais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent frais = new Intent(VisitorCalendarActivity.this, VisitorBundleMonthlyActivity.class);
-                frais.putExtra("ident", valeur);
+                frais.putExtra("currentUser", currentUser);
                 startActivity(frais);
             }
         });
@@ -72,9 +70,8 @@ public class VisitorCalendarActivity extends AppCompatActivity {
         btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent profil = new Intent(VisitorCalendarActivity.this, VisitorProfilActivity.class);
-                profil.putExtra("ident", valeur);
+                profil.putExtra("currentUser", currentUser);
                 startActivity(profil);
             }
         });
@@ -92,9 +89,8 @@ public class VisitorCalendarActivity extends AppCompatActivity {
         btn_consult_rdv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                long valeur = dp_agenda.getMinDate();
                 Intent consult_agenda = new Intent(VisitorCalendarActivity.this, VisitorCalendarDateDetailActivity.class);
-                consult_agenda.putExtra("rdv", valeur);
+                consult_agenda.putExtra("currentUser", currentUser);
                 startActivity(consult_agenda);
             }
         });

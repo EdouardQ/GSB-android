@@ -32,9 +32,8 @@ public class VisitorPractitionerInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.visitor_practitioner_info);
 
-        currentPractitioner = (Practitioner) getIntent().getSerializableExtra("practitionerInfo");
         Intent i_recu = getIntent();
-        String ident_recu = i_recu.getStringExtra("ident");
+        currentPractitioner = (Practitioner) i_recu.getSerializableExtra("practitionerInfo");
 
         btn_set_practitioner = findViewById(R.id.btn_set_practitioner);
 
@@ -44,7 +43,9 @@ public class VisitorPractitionerInfoActivity extends AppCompatActivity {
         btn_frais = findViewById(R.id.frais);
         btn_profil = findViewById(R.id.profil);
         tv_ident = findViewById(R.id.tv_ident);
-        tv_ident.setText(ident_recu);
+
+        User currentUser = (User) i_recu.getSerializableExtra("currentUser");
+        tv_ident.setText(currentUser.getName() + " " + currentUser.getFirstName());
 
         // affichage du praticien -> find
         tv_name = findViewById(R.id.tv_name);
@@ -75,9 +76,8 @@ public class VisitorPractitionerInfoActivity extends AppCompatActivity {
         btn_rdv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent rdv = new Intent(VisitorPractitionerInfoActivity.this, VisitorCalendarActivity.class);
-                rdv.putExtra("ident", valeur);
+                rdv.putExtra("currentUser", currentUser);
                 startActivity(rdv);
             }
         });
@@ -85,9 +85,8 @@ public class VisitorPractitionerInfoActivity extends AppCompatActivity {
         btn_praticien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent pratitien = new Intent(VisitorPractitionerInfoActivity.this, VisitorPractitionersActivity.class);
-                pratitien.putExtra("ident", valeur);
+                pratitien.putExtra("currentUser", currentUser);
                 startActivity(pratitien);
             }
         });
@@ -95,9 +94,8 @@ public class VisitorPractitionerInfoActivity extends AppCompatActivity {
         btn_frais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent frais = new Intent(VisitorPractitionerInfoActivity.this, VisitorBundleMonthlyActivity.class);
-                frais.putExtra("ident", valeur);
+                frais.putExtra("currentUser", currentUser);
                 startActivity(frais);
             }
         });
@@ -105,9 +103,8 @@ public class VisitorPractitionerInfoActivity extends AppCompatActivity {
         btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent profil = new Intent(VisitorPractitionerInfoActivity.this, VisitorProfilActivity.class);
-                profil.putExtra("ident", valeur);
+                profil.putExtra("currentUser", currentUser);
                 startActivity(profil);
             }
         });
@@ -115,9 +112,8 @@ public class VisitorPractitionerInfoActivity extends AppCompatActivity {
         btn_set_practitioner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent setPractitioner = new Intent(VisitorPractitionerInfoActivity.this, VisitorSetPractitionerActivity.class);
-                setPractitioner.putExtra("ident", valeur);
+                setPractitioner.putExtra("currentUser", currentUser);
                 setPractitioner.putExtra("practitionerInfo", currentPractitioner);
                 startActivity(setPractitioner);
             }

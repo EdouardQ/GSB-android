@@ -33,7 +33,6 @@ public class VisitorIndexActivity extends AppCompatActivity {
 
         Intent i_recu = getIntent();
         User currentUser = (User) i_recu.getSerializableExtra("currentUser");
-
         tv_ident.setText(currentUser.getName() + " " + currentUser.getFirstName());
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
@@ -48,9 +47,8 @@ public class VisitorIndexActivity extends AppCompatActivity {
         btn_praticien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent praticien = new Intent(VisitorIndexActivity.this, VisitorPractitionersActivity.class);
-                praticien.putExtra("ident", valeur);
+                praticien.putExtra("currentUser", currentUser);
                 startActivity(praticien);
             }
         });
@@ -58,9 +56,8 @@ public class VisitorIndexActivity extends AppCompatActivity {
         btn_rdv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent rdv = new Intent(VisitorIndexActivity.this, VisitorCalendarActivity.class);
-                rdv.putExtra("ident", valeur);
+                rdv.putExtra("currentUser", currentUser);
                 startActivity(rdv);
             }
         });
@@ -68,9 +65,8 @@ public class VisitorIndexActivity extends AppCompatActivity {
         btn_frais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent frais = new Intent(VisitorIndexActivity.this, VisitorBundleMonthlyActivity.class);
-                frais.putExtra("ident", valeur);
+                frais.putExtra("currentUser", currentUser);
                 startActivity(frais);
             }
         });
@@ -78,9 +74,8 @@ public class VisitorIndexActivity extends AppCompatActivity {
         btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent profil = new Intent(VisitorIndexActivity.this, VisitorProfilActivity.class);
-                profil.putExtra("ident", valeur);
+                profil.putExtra("currentUser", currentUser);
                 startActivity(profil);
             }
         });

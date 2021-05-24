@@ -52,8 +52,7 @@ public class VisitorSetPractitionerActivity extends AppCompatActivity {
         setContentView(R.layout.visitor_set_practitioner);
 
         Intent i_recu = getIntent();
-        String ident_recu = i_recu.getStringExtra("ident");
-
+        
         btn_submit = findViewById(R.id.btn_submit);
 
         btn_dcnx = findViewById(R.id.deconnexion);
@@ -62,7 +61,9 @@ public class VisitorSetPractitionerActivity extends AppCompatActivity {
         btn_frais = findViewById(R.id.frais);
         btn_profil = findViewById(R.id.profil);
         tv_ident = findViewById(R.id.tv_ident);
-        tv_ident.setText(ident_recu);
+
+        User currentUser = (User) i_recu.getSerializableExtra("currentUser");
+        tv_ident.setText(currentUser.getName() + " " + currentUser.getFirstName());
 
         et_name = findViewById(R.id.et_name);
         et_firstName = findViewById(R.id.et_firstName);
@@ -150,9 +151,8 @@ public class VisitorSetPractitionerActivity extends AppCompatActivity {
                                     Log.d("FIREC", "DocumentSnapshot successfully written!");
 
                                     // redirection vers la liste des praticiens -> VisitorSetPractitionerActivity
-                                    String valeur = tv_ident.getText().toString();
                                     Intent pratitien = new Intent(VisitorSetPractitionerActivity.this, VisitorPractitionersActivity.class);
-                                    pratitien.putExtra("ident", valeur);
+                                    pratitien.putExtra("currentUser", currentUser);
                                     startActivity(pratitien);
                                 }
                             })
@@ -178,9 +178,8 @@ public class VisitorSetPractitionerActivity extends AppCompatActivity {
         btn_rdv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent rdv = new Intent(VisitorSetPractitionerActivity.this, VisitorCalendarActivity.class);
-                rdv.putExtra("ident", valeur);
+                rdv.putExtra("currentUser", currentUser);
                 startActivity(rdv);
             }
         });
@@ -188,9 +187,8 @@ public class VisitorSetPractitionerActivity extends AppCompatActivity {
         btn_praticien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent practitien = new Intent(VisitorSetPractitionerActivity.this, VisitorPractitionersActivity.class);
-                practitien.putExtra("ident", valeur);
+                practitien.putExtra("currentUser", currentUser);
                 startActivity(practitien);
             }
         });
@@ -198,9 +196,8 @@ public class VisitorSetPractitionerActivity extends AppCompatActivity {
         btn_frais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent frais = new Intent(VisitorSetPractitionerActivity.this, VisitorBundleMonthlyActivity.class);
-                frais.putExtra("ident", valeur);
+                frais.putExtra("currentUser", currentUser);
                 startActivity(frais);
             }
         });
@@ -208,9 +205,8 @@ public class VisitorSetPractitionerActivity extends AppCompatActivity {
         btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent profil = new Intent(VisitorSetPractitionerActivity.this, VisitorProfilActivity.class);
-                profil.putExtra("ident", valeur);
+                profil.putExtra("currentUser", currentUser);
                 startActivity(profil);
             }
         });

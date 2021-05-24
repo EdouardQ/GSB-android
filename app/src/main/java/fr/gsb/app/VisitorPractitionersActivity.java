@@ -49,8 +49,8 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
         btn_set_practitioner = findViewById(R.id.btn_set_practitioner);
 
         Intent i_recu = getIntent();
-        String ident_recu = i_recu.getStringExtra("ident");
-        tv_ident.setText(ident_recu);
+        User currentUser = (User) i_recu.getSerializableExtra("currentUser");
+        tv_ident.setText(currentUser.getName() + " " + currentUser.getFirstName());
 
         // listage des praticiens
 
@@ -82,9 +82,8 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Practitioner current = (Practitioner) parent.getAdapter().getItem(position);
-                String valeur = tv_ident.getText().toString();
                 Intent practitionInfo = new Intent(VisitorPractitionersActivity.this, VisitorPractitionerInfoActivity.class);
-                practitionInfo.putExtra("ident", valeur);
+                practitionInfo.putExtra("currentUser", currentUser);
                 practitionInfo.putExtra("practitionerInfo", current);
                 startActivity(practitionInfo);
             }
@@ -101,9 +100,8 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
         btn_rdv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent rdv = new Intent(VisitorPractitionersActivity.this, VisitorCalendarActivity.class);
-                rdv.putExtra("ident", valeur);
+                rdv.putExtra("currentUser", currentUser);
                 startActivity(rdv);
             }
         });
@@ -111,9 +109,8 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
         btn_frais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent frais = new Intent(VisitorPractitionersActivity.this, VisitorBundleMonthlyActivity.class);
-                frais.putExtra("ident", valeur);
+                frais.putExtra("currentUser", currentUser);
                 startActivity(frais);
             }
         });
@@ -121,9 +118,8 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
         btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent profil = new Intent(VisitorPractitionersActivity.this, VisitorProfilActivity.class);
-                profil.putExtra("ident", valeur);
+                profil.putExtra("currentUser", currentUser);
                 startActivity(profil);
             }
         });
@@ -131,9 +127,8 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
         btn_set_practitioner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent profil = new Intent(VisitorPractitionersActivity.this, VisitorSetPractitionerActivity.class);
-                profil.putExtra("ident", valeur);
+                profil.putExtra("currentUser", currentUser);
                 startActivity(profil);
             }
         });
