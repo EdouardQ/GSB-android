@@ -135,7 +135,7 @@ public class VisitorSetPractitionerActivity extends AppCompatActivity {
                     practitionerMap.put("name", et_name.getText().toString());
                     practitionerMap.put("firstName", et_firstName.getText().toString());
                     practitionerMap.put("coeffReputation", Double.parseDouble(et_coeffReputation.getText().toString())); // String -> double
-                    practitionerMap.put("workplace", db.document("workplaces/"+(sp_workplace.getSelectedItemPosition() + 1)));
+                    practitionerMap.put("workplace", db.document("workplaces/"+(sp_workplace.getSelectedItemPosition() + 1))); // +1 car la liste commence a l'index 0
                     practitionerMap.put("address", et_address.getText().toString());
                     practitionerMap.put("city", et_city.getText().toString());
                     practitionerMap.put("postalCode", et_postalCode.getText().toString());
