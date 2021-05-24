@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -81,7 +80,11 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Practitioner current = (Practitioner) parent.getAdapter().getItem(position);
-                Toast.makeText(VisitorPractitionersActivity.this, current.getName(), Toast.LENGTH_SHORT).show();
+                String valeur = tv_ident.getText().toString();
+                Intent practititionInfo = new Intent(VisitorPractitionersActivity.this, VisitorPractitionerInfoActivity.class);
+                practititionInfo.putExtra("ident", valeur);
+                practititionInfo.putExtra("practitionerInfo", current); // envoie l'id du document current.getName()+"."+current.getFirstName()
+                startActivity(practititionInfo);
             }
         });
 

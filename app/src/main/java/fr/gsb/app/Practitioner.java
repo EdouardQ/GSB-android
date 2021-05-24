@@ -2,13 +2,15 @@ package fr.gsb.app;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 
-public class Practitioner {
+import java.io.Serializable;
+
+public class Practitioner implements Serializable {
     private String name;
     private String firstName;
     private String address;
     private String city;
     private String postalCode;
-    private Workplace workplace;
+    private String workplace;
     private double coeffReputation;
 
     public Practitioner() {
@@ -19,8 +21,8 @@ public class Practitioner {
         this.firstName = document.getString("firstName");
         this.address = document.getString("address");;
         this.city = document.getString("city");;
-        this.postalCode = document.getString("postalCode");;
-        this.workplace = new Workplace(document);
+        this.postalCode = document.getString("postalCode");
+        this.workplace = document.getString("workplace");
         this.coeffReputation = document.getDouble("coeffReputation");
     }
 
@@ -64,11 +66,11 @@ public class Practitioner {
         this.postalCode = postalCode;
     }
 
-    public Workplace getWorkplace() {
+    public String getWorkplace() {
         return workplace;
     }
 
-    public void setWorkplace(Workplace workplace) {
+    public void setWorkplace(String workplace) {
         this.workplace = workplace;
     }
 

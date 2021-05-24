@@ -85,18 +85,15 @@ public class MainActivity extends AppCompatActivity {
                                                         //envoi vers le menu visiteur avec les infos visiteur
                                                         if (userFC.getRole().equals("visitor")) {
                                                             Intent iVisitor = new Intent(MainActivity.this, VisitorIndexActivity.class);
-                                                            iVisitor.putExtra("userId", userFC.getId());
+                                                            iVisitor.putExtra("currentUser", userFC);
                                                             startActivity(iVisitor);
                                                         }
                                                         //envoi vers le menu comptable avec les infos comptable
                                                         else if (userFC.getRole().equals("accountant")) {
                                                             Intent iAccountant = new Intent(MainActivity.this, AccountantIndexActivity.class);
-                                                            iAccountant.putExtra("userId", userFC.getId());
+                                                            iAccountant.putExtra("currentUser", userFC);
                                                             startActivity(iAccountant);
                                                         }
-                                                        /*Intent i = new Intent(MainActivity.this, VisitorIndexActivity.class);
-                                                        i.putExtra("userId", userFC.getId());
-                                                        startActivity(i);*/
 
                                                     } else {
                                                         Log.d("FIREC", "No such document");
@@ -111,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                                     } else {
                                         // Message erreur de login.
                                         Log.w("FIREB", "signInWithEmail:failure", taskGetUser.getException());
-                                        Toast.makeText(MainActivity.this, "Email ou mot de passe faux.",
+                                        Toast.makeText(MainActivity.this, "Email et/ou mot de passe incorrect(s).",
                                                 Toast.LENGTH_SHORT).show();
                                     }
                                 }

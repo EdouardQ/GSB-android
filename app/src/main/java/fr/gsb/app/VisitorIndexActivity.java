@@ -6,15 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class VisitorIndexActivity extends AppCompatActivity {
 
@@ -29,7 +23,6 @@ public class VisitorIndexActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.visitor_index);
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         btn_dcnx = findViewById(R.id.deconnexion);
         btn_praticien = findViewById(R.id.praticien);
@@ -39,20 +32,9 @@ public class VisitorIndexActivity extends AppCompatActivity {
         tv_ident = findViewById(R.id.tv_ident);
 
         Intent i_recu = getIntent();
-        String userId = i_recu.getStringExtra("userId");
+        User currentUser = (User) i_recu.getSerializableExtra("currentUser");
 
-        DocumentReference docRef = db.collection("users").document(userId);
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    User userFC = new User(task.getResult());
-
-                    tv_ident.setText(userFC.getName() + " " + userFC.getFirstName());
-                }
-            }
-        });
-
+        tv_ident.setText(currentUser.getName() + " " + currentUser.getFirstName());
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override

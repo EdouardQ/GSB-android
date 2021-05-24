@@ -2,7 +2,9 @@ package fr.gsb.app;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String id;
     private String name;
     private String firstName;
