@@ -50,25 +50,26 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
         String ident_recu = i_recu.getStringExtra("ident");
         tv_ident.setText(ident_recu);
 
+        // listage des praticiens
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         practitionerList = new ArrayList<>();
 
         db.collection("practitioners")
-                .get()
+                .get() // récupère tout les praticiens de la collection
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) { // récupère tout les praticiens
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 //Log.d("FIREC", document.getId() + " => " + document.getData());
                                 practitionerList.add(new Practitioner(document));
-                                //Log.d("testPendant", practitionerList.size()+"");
+                                //Log.d("testPendant", practitionerList.size()+""); // taille de la liste
                             }
                             // ajoute la liste des praticiens dans la listview
                             PractititionerAdapter pracAdap = new PractititionerAdapter(VisitorPractitionersActivity.this, practitionerList);
-                            lv_practitioners.setAdapter(pracAdap);
+                            lv_practitioners.setAdapter(pracAdap); // affiche la listview
 
                         } else {
                             Log.d("FIREC", "Error getting documents: ", task.getException());

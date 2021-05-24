@@ -43,7 +43,7 @@ public class VisitorPractitionerInfoActivity extends AppCompatActivity {
         tv_ident = findViewById(R.id.tv_ident);
         tv_ident.setText(ident_recu);
 
-        // affichage du praticien
+        // affichage du praticien -> find
         tv_name = findViewById(R.id.tv_name);
         tv_firstName = findViewById(R.id.tv_firstName);
         tv_coeffReputation = findViewById(R.id.tv_coeffReputation);
@@ -52,6 +52,7 @@ public class VisitorPractitionerInfoActivity extends AppCompatActivity {
         tv_city = findViewById(R.id.tv_city);
         tv_postalCode = findViewById(R.id.tv_postalCode);
 
+        // affichage du praticien -> set
         tv_name.setText(practitioner.getName());
         tv_firstName.setText(practitioner.getFirstName());
         tv_coeffReputation.setText(String.valueOf(practitioner.getCoeffReputation())); // double -> String
