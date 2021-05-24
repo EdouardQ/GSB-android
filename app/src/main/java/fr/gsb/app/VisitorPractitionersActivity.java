@@ -70,7 +70,6 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
                             // ajoute la liste des praticiens dans la listview
                             PractititionerAdapter pracAdap = new PractititionerAdapter(VisitorPractitionersActivity.this, practitionerList);
                             lv_practitioners.setAdapter(pracAdap); // affiche la listview
-
                         } else {
                             Log.d("FIREC", "Error getting documents: ", task.getException());
                         }

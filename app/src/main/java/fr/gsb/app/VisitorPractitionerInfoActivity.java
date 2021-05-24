@@ -56,7 +56,7 @@ public class VisitorPractitionerInfoActivity extends AppCompatActivity {
         tv_name.setText(practitioner.getName());
         tv_firstName.setText(practitioner.getFirstName());
         tv_coeffReputation.setText(String.valueOf(practitioner.getCoeffReputation())); // double -> String
-        tv_workplace.setText(practitioner.getWorkplace());
+        tv_workplace.setText(practitioner.getWorkplace().getWording());
         tv_address.setText(practitioner.getAddress());
         tv_city.setText(practitioner.getCity());
         tv_postalCode.setText(practitioner.getPostalCode());

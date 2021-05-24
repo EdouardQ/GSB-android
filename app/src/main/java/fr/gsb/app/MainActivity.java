@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 //message d'erreur si champ vide
                 if (edt_email.getText().length()==0 || edt_password.getText().length()==0){
                     Log.w("FIREB", "signInWithEmail:failure champs vide");
-                    Toast.makeText(MainActivity.this, "Email ou mot de passe faux.",
+                    Toast.makeText(MainActivity.this, "Email et/ou mot de passe incorrect(s).",
                             Toast.LENGTH_SHORT).show();
                 }
                 else {

@@ -1,5 +1,6 @@
 package fr.gsb.app;
 
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.io.Serializable;
@@ -10,7 +11,7 @@ public class Practitioner implements Serializable {
     private String address;
     private String city;
     private String postalCode;
-    private String workplace;
+    private Workplace workplace;
     private double coeffReputation;
 
     public Practitioner() {
@@ -19,10 +20,11 @@ public class Practitioner implements Serializable {
     public Practitioner(DocumentSnapshot document) {
         this.name = document.getString("name");
         this.firstName = document.getString("firstName");
-        this.address = document.getString("address");;
-        this.city = document.getString("city");;
+        this.address = document.getString("address");
+        this.city = document.getString("city");
         this.postalCode = document.getString("postalCode");
-        this.workplace = document.getString("workplace");
+        ((DocumentReference) document.get("workplace")).addSnapshotListener((workplaceSnapshot, e) ->
+                this.workplace = workplaceSnapshot.toObject(Workplace.class));
         this.coeffReputation = document.getDouble("coeffReputation");
     }
 
@@ -66,13 +68,11 @@ public class Practitioner implements Serializable {
         this.postalCode = postalCode;
     }
 
-    public String getWorkplace() {
+    public Workplace getWorkplace() {
         return workplace;
     }
 
-    public void setWorkplace(String workplace) {
-        this.workplace = workplace;
-    }
+    public void setWorkplace(Workplace workplace) { this.workplace = workplace; }
 
     public double getCoeffReputation() {
         return coeffReputation;
