@@ -11,6 +11,8 @@ public class User implements Serializable {
     private String firstName;
     private String role;
     private String phone;
+    private String city;
+    private String postalCode;
 
     public User() {
     }
@@ -21,6 +23,8 @@ public class User implements Serializable {
         this.firstName = document.getString("firstName");
         this.role = document.getString("role");
         this.phone = document.getString("phone");
+        this.city = document.getString("city");
+        this.postalCode = document.getString("postalCode");
     }
 
     public String getName() {
@@ -69,5 +73,21 @@ public class User implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 }

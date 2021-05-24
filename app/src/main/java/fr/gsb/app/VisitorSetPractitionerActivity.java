@@ -52,7 +52,7 @@ public class VisitorSetPractitionerActivity extends AppCompatActivity {
         setContentView(R.layout.visitor_set_practitioner);
 
         Intent i_recu = getIntent();
-        
+
         btn_submit = findViewById(R.id.btn_submit);
 
         btn_dcnx = findViewById(R.id.deconnexion);
