@@ -1,5 +1,6 @@
 package fr.gsb.app;
 
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.Date;
@@ -16,8 +17,8 @@ public class Agenda {
     public Agenda(DocumentSnapshot document) {
         this.id = document.getId();
         this.rdv = document.getDate("rdv");
-        this.user = new User(document);
-        this.practitioner = new Practitioner(document);
+        ((DocumentReference) document.get("user")).addSnapshotListener((userSnapshot, e) -> this.user = userSnapshot.toObject(User.class));
+        ((DocumentReference) document.get("practitioner")).addSnapshotListener((practitionerSnapshot, e) -> this.practitioner = practitionerSnapshot.toObject(Practitioner.class));
     }
 
     public String getId() { return id; }
@@ -34,5 +35,7 @@ public class Agenda {
 
     public Practitioner getPractitioner() { return practitioner; }
 
-    public void setPractitioner(Practitioner practitioner) { this.practitioner = practitioner; }
+    public void setPractitioner(Practitioner practitioner) {
+        this.practitioner = practitioner;
+    }
 }
