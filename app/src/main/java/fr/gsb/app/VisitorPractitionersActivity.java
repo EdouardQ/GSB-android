@@ -83,10 +83,10 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Practitioner current = (Practitioner) parent.getAdapter().getItem(position);
                 String valeur = tv_ident.getText().toString();
-                Intent practititionInfo = new Intent(VisitorPractitionersActivity.this, VisitorPractitionerInfoActivity.class);
-                practititionInfo.putExtra("ident", valeur);
-                practititionInfo.putExtra("practitionerInfo", current);
-                startActivity(practititionInfo);
+                Intent practitionInfo = new Intent(VisitorPractitionersActivity.this, VisitorPractitionerInfoActivity.class);
+                practitionInfo.putExtra("ident", valeur);
+                practitionInfo.putExtra("practitionerInfo", current);
+                startActivity(practitionInfo);
             }
         });
 
