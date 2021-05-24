@@ -6,6 +6,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import java.io.Serializable;
 
 public class Practitioner implements Serializable {
+    private String id;
     private String name;
     private String firstName;
     private String address;
@@ -18,6 +19,7 @@ public class Practitioner implements Serializable {
     }
 
     public Practitioner(DocumentSnapshot document) {
+        this.id = document.getId();
         this.name = document.getString("name");
         this.firstName = document.getString("firstName");
         this.address = document.getString("address");
@@ -26,6 +28,14 @@ public class Practitioner implements Serializable {
         ((DocumentReference) document.get("workplace")).addSnapshotListener((workplaceSnapshot, e) ->
                 this.workplace = workplaceSnapshot.toObject(Workplace.class));
         this.coeffReputation = document.getDouble("coeffReputation");
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VisitorPractitionerInfoActivity" >
+    tools:context=".VisitorSetPractitionerActivity"
+    android:orientation="vertical">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,10 +44,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/praticien"
                 android:layout_weight="0.22"
-                android:text="Praticiens"
                 android:singleLine="true"
                 android:textSize="12dp"
-                android:backgroundTint="#1C41C6"/>
+                android:text="Praticiens"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,15 +70,16 @@
                 android:layout_weight="0.25"
                 android:singleLine="true"
                 android:textSize="12dp"
-                android:text="Profil"/>
+                android:text="Profil"
+                android:backgroundTint="#1C41C6"/>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginHorizontal="25dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,12 +88,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nom:"/>
-                <TextView
+                <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
                     android:layout_marginHorizontal="25dp"
                     android:singleLine="true"
-                    android:id="@+id/tv_name"/>
+                    android:id="@+id/et_name"
+                    />
             </LinearLayout>
 
             <LinearLayout
@@ -103,12 +106,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Prénom:"/>
-                <TextView
+                <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
                     android:layout_marginHorizontal="25dp"
                     android:singleLine="true"
-                    android:id="@+id/tv_firstName"/>
+                    android:id="@+id/et_firstName"/>
             </LinearLayout>
 
             <LinearLayout
@@ -119,12 +123,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Coefficient de réputation:"/>
-                <TextView
+                <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
                     android:layout_marginHorizontal="25dp"
                     android:singleLine="true"
-                    android:id="@+id/tv_coeffReputation"/>
+                    android:id="@+id/et_coeffReputation"/>
             </LinearLayout>
 
             <LinearLayout
@@ -135,12 +140,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Lieu de travail:"/>
-                <TextView
+                <Spinner
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginHorizontal="25dp"
                     android:singleLine="true"
-                    android:id="@+id/tv_workplace"/>
+                    android:spinnerMode="dropdown"
+                    android:id="@+id/sp_workplace"/>
             </LinearLayout>
 
             <LinearLayout
@@ -151,12 +157,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Adresse:"/>
-                <TextView
+                <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPostalAddress"
                     android:layout_marginHorizontal="25dp"
-                    android:singleLine="true"
-                    android:id="@+id/tv_address"/>
+                    android:id="@+id/et_address"/>
             </LinearLayout>
 
             <LinearLayout
@@ -167,12 +173,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ville:"/>
-                <TextView
+                <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
                     android:layout_marginHorizontal="25dp"
-                    android:singleLine="true"
-                    android:id="@+id/tv_city"/>
+                    android:id="@+id/et_city"/>
             </LinearLayout>
 
             <LinearLayout
@@ -183,19 +189,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Code postal:"/>
-                <TextView
+                <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:layout_marginHorizontal="25dp"
-                    android:singleLine="true"
-                    android:id="@+id/tv_postalCode"/>
+                    android:id="@+id/et_postalCode"/>
             </LinearLayout>
+
         </LinearLayout>
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Editer"
-            android:id="@+id/btn_set_practitioner"/>
+            android:layout_height="match_parent"
+            android:text="Valider"
+            android:layout_marginVertical="75dp"
+            android:singleLine="true"
+            android:textSize="12dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:id="@+id/btn_submit"
+            />
     </LinearLayout>
 </ScrollView>

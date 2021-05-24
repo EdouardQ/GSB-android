@@ -28,6 +28,7 @@
         <activity android:name=".AccountantListExpenseFormLeftActivity"></activity>
         <activity android:name=".AccountantProfilActivity"></activity>
         <activity android:name=".VisitorPractitionerInfoActivity"></activity>
+        <activity android:name=".VisitorSetPractitionerActivity"></activity>
     </application>
 
 </manifest>

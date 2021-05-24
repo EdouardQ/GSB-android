@@ -16,7 +16,7 @@ public class VisitorPractitionerInfoActivity extends AppCompatActivity {
     private Button btn_rdv;
     private Button btn_frais;
     private Button btn_profil;
-    private Practitioner practitioner;
+    private Practitioner currentPractitioner;
     private TextView tv_ident;
     private TextView tv_name;
     private TextView tv_firstName;
@@ -25,15 +25,18 @@ public class VisitorPractitionerInfoActivity extends AppCompatActivity {
     private TextView tv_address;
     private TextView tv_city;
     private TextView tv_postalCode;
+    private Button btn_set_practitioner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.visitor_practitioner_info);
 
-        practitioner = (Practitioner) getIntent().getSerializableExtra("practitionerInfo");
+        currentPractitioner = (Practitioner) getIntent().getSerializableExtra("practitionerInfo");
         Intent i_recu = getIntent();
         String ident_recu = i_recu.getStringExtra("ident");
+
+        btn_set_practitioner = findViewById(R.id.btn_set_practitioner);
 
         btn_dcnx = findViewById(R.id.deconnexion);
         btn_praticien = findViewById(R.id.praticien);
@@ -53,13 +56,13 @@ public class VisitorPractitionerInfoActivity extends AppCompatActivity {
         tv_postalCode = findViewById(R.id.tv_postalCode);
 
         // affichage du praticien -> set
-        tv_name.setText(practitioner.getName());
-        tv_firstName.setText(practitioner.getFirstName());
-        tv_coeffReputation.setText(String.valueOf(practitioner.getCoeffReputation())); // double -> String
-        tv_workplace.setText(practitioner.getWorkplace().getWording());
-        tv_address.setText(practitioner.getAddress());
-        tv_city.setText(practitioner.getCity());
-        tv_postalCode.setText(practitioner.getPostalCode());
+        tv_name.setText(currentPractitioner.getName());
+        tv_firstName.setText(currentPractitioner.getFirstName());
+        tv_coeffReputation.setText(String.valueOf(currentPractitioner.getCoeffReputation())); // double -> String
+        tv_workplace.setText(currentPractitioner.getWorkplace().getWording());
+        tv_address.setText(currentPractitioner.getAddress());
+        tv_city.setText(currentPractitioner.getCity());
+        tv_postalCode.setText(currentPractitioner.getPostalCode());
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,9 +86,9 @@ public class VisitorPractitionerInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String valeur = tv_ident.getText().toString();
-                Intent frais = new Intent(VisitorPractitionerInfoActivity.this, VisitorPractitionersActivity.class);
-                frais.putExtra("ident", valeur);
-                startActivity(frais);
+                Intent pratitien = new Intent(VisitorPractitionerInfoActivity.this, VisitorPractitionersActivity.class);
+                pratitien.putExtra("ident", valeur);
+                startActivity(pratitien);
             }
         });
 
@@ -106,6 +109,17 @@ public class VisitorPractitionerInfoActivity extends AppCompatActivity {
                 Intent profil = new Intent(VisitorPractitionerInfoActivity.this, VisitorProfilActivity.class);
                 profil.putExtra("ident", valeur);
                 startActivity(profil);
+            }
+        });
+
+        btn_set_practitioner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String valeur = tv_ident.getText().toString();
+                Intent setPractitioner = new Intent(VisitorPractitionerInfoActivity.this, VisitorSetPractitionerActivity.class);
+                setPractitioner.putExtra("ident", valeur);
+                setPractitioner.putExtra("practitionerInfo", currentPractitioner);
+                startActivity(setPractitioner);
             }
         });
     }

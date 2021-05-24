@@ -32,6 +32,7 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
     private TextView tv_ident;
     private ListView lv_practitioners;
     private List<Practitioner> practitionerList;
+    private Button btn_set_practitioner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,7 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
         btn_profil = findViewById(R.id.profil);
         tv_ident = findViewById(R.id.tv_ident);
         lv_practitioners = findViewById(R.id.lv_practitioner);
+        btn_set_practitioner = findViewById(R.id.btn_set_practitioner);
 
         Intent i_recu = getIntent();
         String ident_recu = i_recu.getStringExtra("ident");
@@ -83,7 +85,7 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
                 String valeur = tv_ident.getText().toString();
                 Intent practititionInfo = new Intent(VisitorPractitionersActivity.this, VisitorPractitionerInfoActivity.class);
                 practititionInfo.putExtra("ident", valeur);
-                practititionInfo.putExtra("practitionerInfo", current); // envoie l'id du document current.getName()+"."+current.getFirstName()
+                practititionInfo.putExtra("practitionerInfo", current);
                 startActivity(practititionInfo);
             }
         });
@@ -121,6 +123,16 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String valeur = tv_ident.getText().toString();
                 Intent profil = new Intent(VisitorPractitionersActivity.this, VisitorProfilActivity.class);
+                profil.putExtra("ident", valeur);
+                startActivity(profil);
+            }
+        });
+
+        btn_set_practitioner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String valeur = tv_ident.getText().toString();
+                Intent profil = new Intent(VisitorPractitionersActivity.this, VisitorSetPractitionerActivity.class);
                 profil.putExtra("ident", valeur);
                 startActivity(profil);
             }

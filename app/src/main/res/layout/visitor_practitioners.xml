@@ -77,7 +77,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:text="Ajouter" />
+            android:text="Ajouter"
+            android:id="@+id/btn_set_practitioner"/>
 
         <ListView
             android:layout_width="match_parent"
