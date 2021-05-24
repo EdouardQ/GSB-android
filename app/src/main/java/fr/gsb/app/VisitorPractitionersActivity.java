@@ -70,7 +70,7 @@ public class VisitorPractitionersActivity extends AppCompatActivity {
                                 //Log.d("testPendant", practitionerList.size()+""); // taille de la liste
                             }
                             // ajoute la liste des praticiens dans la listview
-                            PractititionerAdapter pracAdap = new PractititionerAdapter(VisitorPractitionersActivity.this, practitionerList);
+                            PractitionerAdapter pracAdap = new PractitionerAdapter(VisitorPractitionersActivity.this, practitionerList);
                             lv_practitioners.setAdapter(pracAdap); // affiche la listview
                         } else {
                             Log.d("FIREC", "Error getting documents: ", task.getException());

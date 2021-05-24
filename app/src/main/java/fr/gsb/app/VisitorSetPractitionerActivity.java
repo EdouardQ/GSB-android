@@ -136,7 +136,6 @@ public class VisitorSetPractitionerActivity extends AppCompatActivity {
                     practitionerMap.put("firstName", et_firstName.getText().toString());
                     practitionerMap.put("coeffReputation", Double.parseDouble(et_coeffReputation.getText().toString())); // String -> double
                     practitionerMap.put("workplace", db.document("workplaces/"+(sp_workplace.getSelectedItemPosition() + 1)));
-
                     practitionerMap.put("address", et_address.getText().toString());
                     practitionerMap.put("city", et_city.getText().toString());
                     practitionerMap.put("postalCode", et_postalCode.getText().toString());

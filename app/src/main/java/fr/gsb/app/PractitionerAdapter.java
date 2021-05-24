@@ -9,12 +9,12 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class PractititionerAdapter extends BaseAdapter {
+public class PractitionerAdapter extends BaseAdapter {
 
     private Context context;
     private List<Practitioner> datas;
 
-    public PractititionerAdapter(Context content, List<Practitioner> datas) {
+    public PractitionerAdapter(Context content, List<Practitioner> datas) {
         this.context = content;
         this.datas = datas;
     }
