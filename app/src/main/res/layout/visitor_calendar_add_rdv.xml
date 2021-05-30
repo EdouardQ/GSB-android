@@ -120,6 +120,38 @@
                     android:gravity="center_horizontal" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Praticien :"/>
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="25dp"
+                    android:singleLine="true"
+                    android:spinnerMode="dropdown"
+                    android:id="@+id/sp_practitioner"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_add_rdv"
+                android:layout_gravity="center"
+                android:layout_marginBottom="25dp"
+                android:text="Ajouter RDV"/>
 
         </LinearLayout>
 
