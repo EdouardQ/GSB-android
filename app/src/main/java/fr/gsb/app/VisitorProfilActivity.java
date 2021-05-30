@@ -33,6 +33,7 @@ public class VisitorProfilActivity extends AppCompatActivity {
     private Button btn_frais;
     private Button btn_profil;
     private TextView tv_ident;
+
     private FirebaseUser userFB;
 
     private EditText et_name;
