@@ -79,9 +79,8 @@ public class VisitorCalendarActivity extends AppCompatActivity {
         btn_add_rdv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                long valeur = dp_agenda.getMinDate();
                 Intent add_rdv = new Intent(VisitorCalendarActivity.this, VisitorCalendarAddRdvActivity.class);
-                add_rdv.putExtra("rdv", valeur);
+                add_rdv.putExtra("currentUser", currentUser);
                 startActivity(add_rdv);
             }
         });
@@ -89,8 +88,9 @@ public class VisitorCalendarActivity extends AppCompatActivity {
         btn_consult_rdv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                long valeur = dp_agenda.getMinDate();
                 Intent consult_agenda = new Intent(VisitorCalendarActivity.this, VisitorCalendarDateDetailActivity.class);
-                consult_agenda.putExtra("currentUser", currentUser);
+                consult_agenda.putExtra("consult_rdv", valeur);
                 startActivity(consult_agenda);
             }
         });
