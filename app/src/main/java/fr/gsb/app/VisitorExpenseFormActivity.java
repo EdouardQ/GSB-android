@@ -75,14 +75,14 @@ public class VisitorExpenseFormActivity extends AppCompatActivity {
                     if (et_km.getText().length()==0){ // pour la conversion String -> Integer
                         et_km.setText("0");
                     }
-                    expenseFormMap.put("km", Integer.parseInt(et_km.getText().toString()));
+                    expenseFormMap.put("km", Double.parseDouble(et_km.getText().toString()));  // String -> double
                     expenseFormMap.put("otherCost", et_otherCost.getText().toString());
                     if (et_paid.getText().length()==0){ // pour la conversion String -> double
                         et_paid.setText("0");
                     }
                     expenseFormMap.put("paid", Double.parseDouble(et_paid.getText().toString())); // String -> double
-                    expenseFormMap.put("state", db.document("state/1"));
-                    expenseFormMap.put("user", currentUser.getId());
+                    expenseFormMap.put("state", db.document("states/1"));
+                    expenseFormMap.put("user", db.document("users/"+currentUser.getId()));
 
                     db.collection("expense_forms")
                             .document(GenerateRandomString.randomString(20))

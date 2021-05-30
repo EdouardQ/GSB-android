@@ -9,7 +9,7 @@ import java.util.Date;
 public class ExpenseForm implements Serializable {
     private String id;
     private Date date;
-    private Integer km;
+    private double km;
     private String otherCost;
     private double paid;
     private User user;
@@ -21,13 +21,13 @@ public class ExpenseForm implements Serializable {
     public ExpenseForm(DocumentSnapshot document) {
         this.id = document.getId();
         this.date = document.getDate("date");
-        this.km = Integer.parseInt(document.getString("km")); // String -> int
+        this.km = document.getDouble("paid");
         this.otherCost = document.getString("otherCost");
         this.paid = document.getDouble("paid");
-        ((DocumentReference) document.get("user")).addSnapshotListener((workplaceSnapshot, e) ->
-                this.user = workplaceSnapshot.toObject(User.class));
-        ((DocumentReference) document.get("state")).addSnapshotListener((workplaceSnapshot, e1) ->
-                this.state = workplaceSnapshot.toObject(State.class));
+        ((DocumentReference) document.get("user")).addSnapshotListener((userSnapshot, e) ->
+                this.user = userSnapshot.toObject(User.class));
+        ((DocumentReference) document.get("state")).addSnapshotListener((stateSnapshot, e1) ->
+                this.state = stateSnapshot.toObject(State.class));
     }
 
     public String getId() {
@@ -46,11 +46,11 @@ public class ExpenseForm implements Serializable {
         this.date = date;
     }
 
-    public Integer getKm() {
+    public double getKm() {
         return km;
     }
 
-    public void setKm(Integer km) {
+    public void setKm(double km) {
         this.km = km;
     }
 

@@ -28,8 +28,7 @@ public class AccountantBundleMontlyActivity extends AppCompatActivity {
         tv_ident = findViewById(R.id.tv_ident);
 
         Intent i_recu = getIntent();
-        String ident_recu = i_recu.getStringExtra("ident");
-        tv_ident.setText(ident_recu);
+        User currentUser = (User) i_recu.getSerializableExtra("currentUser");
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,9 +43,8 @@ public class AccountantBundleMontlyActivity extends AppCompatActivity {
         btn_val_frais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent val_frais = new Intent(AccountantBundleMontlyActivity.this, AccountantListExpenseFormLeftActivity.class);
-                val_frais.putExtra("ident", valeur);
+                val_frais.putExtra("currentUser", currentUser);
                 startActivity(val_frais);
             }
         });
@@ -54,9 +52,8 @@ public class AccountantBundleMontlyActivity extends AppCompatActivity {
         btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valeur = tv_ident.getText().toString();
                 Intent profil = new Intent(AccountantBundleMontlyActivity.this, AccountantProfilActivity.class);
-                profil.putExtra("ident", valeur);
+                profil.putExtra("currentUser", currentUser);
                 startActivity(profil);
             }
         });

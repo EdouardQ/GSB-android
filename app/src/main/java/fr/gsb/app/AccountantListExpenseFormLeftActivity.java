@@ -57,8 +57,11 @@ public class AccountantListExpenseFormLeftActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                //Log.d("FIREC", document.getId() + " => " + document.getData());
+                                Log.d("FIREC", document.getId() + " => " + document.getData());
                                 ExpenseForm tmp_expenseform = new ExpenseForm(document);
+                                Log.d("test", tmp_expenseform.getUser().getId());
+                                Log.d("test", tmp_expenseform.getState().getId()+"");
+                                Log.d("test", tmp_expenseform.getState().getWording());
                                 if (tmp_expenseform.getState().getWording().equals("Saisie clôturée")) {
                                     expenseformList.add(tmp_expenseform);
                                 }
