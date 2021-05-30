@@ -1,6 +1,5 @@
 package fr.gsb.app;
 
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.io.Serializable;
@@ -12,8 +11,10 @@ public class ExpenseForm implements Serializable {
     private double km;
     private String otherCost;
     private double paid;
-    private User user;
-    private State state;
+    private String userName;
+    private String userFirstName;
+    private String UserId;
+    private String state;
 
     public ExpenseForm() {
     }
@@ -24,10 +25,10 @@ public class ExpenseForm implements Serializable {
         this.km = document.getDouble("paid");
         this.otherCost = document.getString("otherCost");
         this.paid = document.getDouble("paid");
-        ((DocumentReference) document.get("user")).addSnapshotListener((userSnapshot, e) ->
-                this.user = userSnapshot.toObject(User.class));
-        ((DocumentReference) document.get("state")).addSnapshotListener((stateSnapshot, e1) ->
-                this.state = stateSnapshot.toObject(State.class));
+        this.userName = document.getString("userName");
+        this.userFirstName = document.getString("userFirstName");
+        this.UserId = document.getString("UserId");
+        this.state = document.getString("state");
     }
 
     public String getId() {
@@ -70,19 +71,36 @@ public class ExpenseForm implements Serializable {
         this.paid = paid;
     }
 
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public State getState() {
+    public String getState() {
         return state;
     }
 
-    public void setState(State state) {
+    public void setState(String state) {
         this.state = state;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserId() {
+        return UserId;
+    }
+
+    public String getUserFirstName() {
+        return userFirstName;
+    }
+
+    public void setUserFirstName(String userFirstName) {
+        this.userFirstName = userFirstName;
+    }
+
+    public void setUserId(String userId) {
+        UserId = userId;
     }
 }

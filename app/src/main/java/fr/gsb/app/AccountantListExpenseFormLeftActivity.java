@@ -43,12 +43,11 @@ public class AccountantListExpenseFormLeftActivity extends AppCompatActivity {
         lv_expenseform = findViewById(R.id.lv_expenseform);
 
 
-// listage des fiches de frais non validées
+        // listage des fiches de frais non validées
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         expenseformList = new ArrayList<>();
-
 
         db.collection("expense_forms")
                 .get() // récupère tout les fiches de frais de la collection
@@ -57,15 +56,11 @@ public class AccountantListExpenseFormLeftActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d("FIREC", document.getId() + " => " + document.getData());
-                                ExpenseForm tmp_expenseform = new ExpenseForm(document);
-                                Log.d("test", tmp_expenseform.getUser().getId());
-                                Log.d("test", tmp_expenseform.getState().getId()+"");
-                                Log.d("test", tmp_expenseform.getState().getWording());
-                                if (tmp_expenseform.getState().getWording().equals("Saisie clôturée")) {
-                                    expenseformList.add(tmp_expenseform);
-                                }
+                                //Log.d("FIREC", document.getId() + " => " + document.getData());
 
+                                if (document.getString("state").equals("Saisie clôturée")){
+                                    expenseformList.add(new ExpenseForm(document));
+                                }
 
                             }
                             // ajoute la liste des fiches frais dans la listview

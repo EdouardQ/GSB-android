@@ -81,8 +81,10 @@ public class VisitorExpenseFormActivity extends AppCompatActivity {
                         et_paid.setText("0");
                     }
                     expenseFormMap.put("paid", Double.parseDouble(et_paid.getText().toString())); // String -> double
-                    expenseFormMap.put("state", db.document("states/1"));
-                    expenseFormMap.put("user", db.document("users/"+currentUser.getId()));
+                    expenseFormMap.put("state", "Saisie clôturée");
+                    expenseFormMap.put("userName", currentUser.getName());
+                    expenseFormMap.put("userFirstName", currentUser.getFirstName());
+                    expenseFormMap.put("userId", currentUser.getId());
 
                     db.collection("expense_forms")
                             .document(GenerateRandomString.randomString(20))

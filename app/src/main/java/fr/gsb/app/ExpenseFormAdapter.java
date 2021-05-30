@@ -46,7 +46,7 @@ public class ExpenseFormAdapter extends BaseAdapter {
         ExpenseForm current = (ExpenseForm) getItem(position);
 
 
-        tv_name.setText(current.getUser().getName());
+        tv_name.setText(current.getUserName()+" "+current.getUserFirstName());
         tv_date.setText(String.format("%1$tm-%1$tY", current.getDate()));
 
         return convertView;
