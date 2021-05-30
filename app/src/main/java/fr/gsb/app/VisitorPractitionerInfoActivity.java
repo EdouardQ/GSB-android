@@ -85,16 +85,16 @@ public class VisitorPractitionerInfoActivity extends AppCompatActivity {
         btn_praticien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent pratitien = new Intent(VisitorPractitionerInfoActivity.this, VisitorPractitionersActivity.class);
-                pratitien.putExtra("currentUser", currentUser);
-                startActivity(pratitien);
+                Intent praticien = new Intent(VisitorPractitionerInfoActivity.this, VisitorPractitionersActivity.class);
+                praticien.putExtra("currentUser", currentUser);
+                startActivity(praticien);
             }
         });
 
         btn_frais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent frais = new Intent(VisitorPractitionerInfoActivity.this, VisitorBundleMonthlyActivity.class);
+                Intent frais = new Intent(VisitorPractitionerInfoActivity.this, VisitorExpenseFormActivity.class);
                 frais.putExtra("currentUser", currentUser);
                 startActivity(frais);
             }

@@ -151,9 +151,9 @@ public class VisitorSetPractitionerActivity extends AppCompatActivity {
                                     Log.d("FIREC", "DocumentSnapshot successfully written!");
 
                                     // redirection vers la liste des praticiens -> VisitorSetPractitionerActivity
-                                    Intent pratitien = new Intent(VisitorSetPractitionerActivity.this, VisitorPractitionersActivity.class);
-                                    pratitien.putExtra("currentUser", currentUser);
-                                    startActivity(pratitien);
+                                    Intent praticien = new Intent(VisitorSetPractitionerActivity.this, VisitorPractitionersActivity.class);
+                                    praticien.putExtra("currentUser", currentUser);
+                                    startActivity(praticien);
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
@@ -187,16 +187,16 @@ public class VisitorSetPractitionerActivity extends AppCompatActivity {
         btn_praticien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent practitien = new Intent(VisitorSetPractitionerActivity.this, VisitorPractitionersActivity.class);
-                practitien.putExtra("currentUser", currentUser);
-                startActivity(practitien);
+                Intent praticien = new Intent(VisitorSetPractitionerActivity.this, VisitorPractitionersActivity.class);
+                praticien.putExtra("currentUser", currentUser);
+                startActivity(praticien);
             }
         });
 
         btn_frais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent frais = new Intent(VisitorSetPractitionerActivity.this, VisitorBundleMonthlyActivity.class);
+                Intent frais = new Intent(VisitorSetPractitionerActivity.this, VisitorExpenseFormActivity.class);
                 frais.putExtra("currentUser", currentUser);
                 startActivity(frais);
             }

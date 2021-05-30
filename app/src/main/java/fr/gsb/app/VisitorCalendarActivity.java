@@ -61,7 +61,7 @@ public class VisitorCalendarActivity extends AppCompatActivity {
         btn_frais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent frais = new Intent(VisitorCalendarActivity.this, VisitorBundleMonthlyActivity.class);
+                Intent frais = new Intent(VisitorCalendarActivity.this, VisitorExpenseFormActivity.class);
                 frais.putExtra("currentUser", currentUser);
                 startActivity(frais);
             }

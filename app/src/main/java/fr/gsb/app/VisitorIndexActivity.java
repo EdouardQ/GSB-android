@@ -65,7 +65,7 @@ public class VisitorIndexActivity extends AppCompatActivity {
         btn_frais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent frais = new Intent(VisitorIndexActivity.this, VisitorBundleMonthlyActivity.class);
+                Intent frais = new Intent(VisitorIndexActivity.this, VisitorExpenseFormActivity.class);
                 frais.putExtra("currentUser", currentUser);
                 startActivity(frais);
             }
