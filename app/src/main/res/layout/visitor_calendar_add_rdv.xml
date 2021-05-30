@@ -85,7 +85,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/btn_add_rdv"
+                    android:id="@+id/btn_add_date"
                     android:text="Date :"/>
                 <EditText
                     android:layout_width="match_parent"
@@ -96,8 +96,28 @@
                     android:id="@+id/et_date"
                     android:hint="Appuyer sur le bouton"
                     android:textAlignment="center"
-                    android:gravity="center_horizontal"
-                    android:textSize="10sp"/>
+                    android:gravity="center_horizontal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_add_time"
+                    android:text="Heure :"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:layout_marginHorizontal="25dp"
+                    android:singleLine="true"
+                    android:id="@+id/et_time"
+                    android:hint="Appuyer sur le bouton"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal" />
             </LinearLayout>
 
 
