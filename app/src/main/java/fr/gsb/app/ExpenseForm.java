@@ -6,7 +6,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import java.io.Serializable;
 import java.util.Date;
 
-public class BundleMonthly implements Serializable {
+public class ExpenseForm implements Serializable {
     private String id;
     private Date date;
     private Integer km;
@@ -15,10 +15,10 @@ public class BundleMonthly implements Serializable {
     private User user;
     private State state;
 
-    public BundleMonthly() {
+    public ExpenseForm() {
     }
 
-    public BundleMonthly(DocumentSnapshot document) {
+    public ExpenseForm(DocumentSnapshot document) {
         this.id = document.getId();
         this.date = document.getDate("date");
         this.km = Integer.parseInt(document.getString("km")); // String -> int
