@@ -62,12 +62,25 @@ public class VisitorExpenseFormActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Si les champs ont bien été renseignés
-                if (et_km.getText().length()!=0 || (et_otherCost.getText().length()!=0 && et_paid.getText().length()!=0)){
+                Boolean verif = Boolean.FALSE;
+                if (et_otherCost.getText().length()!=0 && et_paid.getText().length()!=0){
+                    verif = Boolean.TRUE;
+                }
+                if ((et_otherCost.getText().length()==0 && et_paid.getText().length()==0) && et_km.getText().length()!=0){
+                    verif = Boolean.TRUE;
+                }
+                if (verif){
                     Map<String, Object> expenseFormMap = new HashMap<>();
                     expenseFormMap.put("date", new Timestamp(new Date()));
-                    expenseFormMap.put("km", et_km.getText().toString());
+                    if (et_km.getText().length()==0){ // pour la conversion String -> Integer
+                        et_km.setText("0");
+                    }
+                    expenseFormMap.put("km", Integer.parseInt(et_km.getText().toString()));
                     expenseFormMap.put("otherCost", et_otherCost.getText().toString());
-                    expenseFormMap.put("paid", et_paid.getText().toString());
+                    if (et_paid.getText().length()==0){ // pour la conversion String -> double
+                        et_paid.setText("0");
+                    }
+                    expenseFormMap.put("paid", Double.parseDouble(et_paid.getText().toString())); // String -> double
                     expenseFormMap.put("state", db.document("state/1"));
                     expenseFormMap.put("user", currentUser.getId());
 
