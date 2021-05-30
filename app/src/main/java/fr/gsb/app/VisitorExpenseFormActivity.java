@@ -103,6 +103,7 @@ public class VisitorExpenseFormActivity extends AppCompatActivity {
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 Intent connexion = new Intent(VisitorExpenseFormActivity.this, MainActivity.class);
+                connexion.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(connexion);
             }
         });

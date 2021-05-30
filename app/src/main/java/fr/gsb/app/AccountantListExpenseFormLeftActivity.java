@@ -38,6 +38,7 @@ public class AccountantListExpenseFormLeftActivity extends AppCompatActivity {
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 Intent connexion = new Intent(AccountantListExpenseFormLeftActivity.this, MainActivity.class);
+                connexion.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(connexion);
             }
         });
