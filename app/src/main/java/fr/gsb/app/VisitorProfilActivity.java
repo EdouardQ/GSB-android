@@ -43,6 +43,7 @@ public class VisitorProfilActivity extends AppCompatActivity {
     private EditText et_currentPassword;
     private EditText et_newPassword;
     private Button btn_submit;
+    private Button btn_update_password;
 
 
     @Override
@@ -73,6 +74,7 @@ public class VisitorProfilActivity extends AppCompatActivity {
         et_currentPassword = findViewById(R.id.et_currentPassword);
         et_newPassword = findViewById(R.id.et_newPassword);
         btn_submit = findViewById(R.id.btn_submit);
+        btn_update_password = findViewById(R.id.btn_update_password);
 
         // Set des EditText
         et_name.setText(currentUser.getName());
@@ -86,48 +88,17 @@ public class VisitorProfilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Si les champs ont bien tous été renseignés (sauf les champs mot de passe)
-                if (et_name.getText().length()==0 || et_firstName.getText().length()==0 || et_city.getText().length()==0 ||
-                        et_postalCode.getText().length()==0 || et_phone.getText().length()==0){
+                if (et_name.getText().length()!=0 && et_firstName.getText().length()!=0 && et_city.getText().length()!=0 &&
+                        et_postalCode.getText().length()!=0 && et_phone.getText().length()!=0){
                     Map<String, Object> userMap = new HashMap<>();
                     userMap.put("name", et_name.getText().toString());
                     userMap.put("firstName", et_firstName.getText().toString());
                     userMap.put("city", et_city.getText().toString());
                     userMap.put("postalCode", et_postalCode.getText().toString());
                     userMap.put("phone", et_phone.getText().toString());
+                    userMap.put("role", currentUser.getRole());
 
-                    // Si les champs mot de passe sont remplis
-                    if (et_currentPassword.getText().length()!=0 && et_newPassword.getText().length()>=5){
-                        userFB = FirebaseAuth.getInstance().getCurrentUser();
-                        final String email = userFB.getEmail();
 
-                        String old_password = et_currentPassword.getText().toString();
-                        String new_password = et_newPassword.getText().toString();
-
-                        // initialisation connexion au compte
-                        AuthCredential credential = EmailAuthProvider.getCredential(email,old_password);
-
-                        // update du mot de passe
-                        userFB.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()){
-                                    userFB.updatePassword(new_password).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (!task.isSuccessful()){
-                                                Toast.makeText(VisitorProfilActivity.this, "Il y a une erreur quelque part, veuillez réessayer.",
-                                                        Toast.LENGTH_SHORT).show();
-                                            }else {
-                                                Toast.makeText(VisitorProfilActivity.this, "Mot de passe mit à jour.",
-                                                        Toast.LENGTH_SHORT).show();
-                                            }
-                                        }
-                                    });
-                                }
-                            }
-                        });
-
-                    }
 
                     // update de User dans FireCloud
                     db.collection("users")
@@ -137,14 +108,57 @@ public class VisitorProfilActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     Log.d("FIREC", "DocumentSnapshot successfully written!");
+                                    Toast.makeText(VisitorProfilActivity.this, "Changement(s) effectué(s)",
+                                            Toast.LENGTH_SHORT).show();
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
                                     Log.w("FIREC", "Error writing document", e);
+                                    Toast.makeText(VisitorProfilActivity.this, "Il y a une erreur quelque part, veuillez réessayer.",
+                                            Toast.LENGTH_SHORT).show();
                                 }
                             });
+                }
+            }
+        });
+
+        btn_update_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Si les champs mot de passe sont remplis
+                if (et_currentPassword.getText().length()!=0 && et_newPassword.getText().length()>=5){
+                    userFB = FirebaseAuth.getInstance().getCurrentUser();
+                    final String email = userFB.getEmail();
+
+                    String old_password = et_currentPassword.getText().toString();
+                    String new_password = et_newPassword.getText().toString();
+
+                    // initialisation connexion au compte
+                    AuthCredential credential = EmailAuthProvider.getCredential(email,old_password);
+
+                    // update du mot de passe
+                    userFB.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()){
+                                userFB.updatePassword(new_password).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (!task.isSuccessful()){
+                                            Toast.makeText(VisitorProfilActivity.this, "Il y a une erreur quelque part, veuillez réessayer.",
+                                                    Toast.LENGTH_SHORT).show();
+                                        }else {
+                                            Toast.makeText(VisitorProfilActivity.this, "Mot de passe mis à jour.",
+                                                    Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    });
+
                 }
             }
         });
