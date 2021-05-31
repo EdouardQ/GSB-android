@@ -10,12 +10,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#5670CC">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_ident"
+            android:textColor="#FFFFFF"
             android:textSize="20dp"/>
         <Button
             android:id="@+id/deconnexion"
@@ -26,7 +28,7 @@
             android:layout_marginRight="5dp"
             android:singleLine="true"
             android:text="Deconnexion"
-            android:textSize="15dp"/>
+            android:textSize="12dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,39 +40,52 @@
             android:id="@+id/praticien"
             android:layout_weight="0.22"
             android:text="Praticiens"
+            android:singleLine="true"
+            android:textSize="12dp"
             android:backgroundTint="#1C41C6"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/rdv"
             android:layout_weight="0.25"
+            android:singleLine="true"
+            android:textSize="12dp"
             android:text="RDV"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/frais"
             android:layout_weight="0.25"
+            android:singleLine="true"
+            android:textSize="12dp"
             android:text="Frais"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/profil"
             android:layout_weight="0.25"
+            android:singleLine="true"
+            android:textSize="12dp"
             android:text="Profil"/>
 
     </LinearLayout>
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="Ajouter"
+            android:id="@+id/btn_set_practitioner"/>
+
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ajouter"
-            android:layout_marginHorizontal="100dp"
-            android:layout_gravity="center_horizontal|bottom"/>
-    </FrameLayout>
+            android:id="@+id/lv_practitioner" />
+
+    </RelativeLayout>
+
 
 </LinearLayout>

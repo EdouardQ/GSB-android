@@ -1,57 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AccountantListExpenseFormLeftActivity"
     android:orientation="vertical">
+
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="comptable"
-            android:textSize="20dp"/>
-        <Button
-            android:id="@+id/deconnexion"
-            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:background="#5670CC">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_ident"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"/>
+            <Button
+                android:id="@+id/deconnexion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="5dp"
+                android:singleLine="true"
+                android:text="Deconnexion"
+                android:textSize="12dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/validation_frais"
+                android:layout_weight="0.2"
+                android:text="Frais visiteur"
+                android:backgroundTint="#1C41C6"
+                android:singleLine="true"
+                android:textSize="12dp"
+                />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/frais_mois"
+                android:layout_weight="0.2"
+                android:text="Frais Mois"
+                android:singleLine="true"
+                android:textSize="12dp"
+                />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/profil_compt"
+                android:layout_weight="0.25"
+                android:text="Profil"
+                android:singleLine="true"
+                android:textSize="12dp"
+                />
+
+        </LinearLayout>
+        <ListView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="5dp"
-            android:singleLine="true"
-            android:text="Deconnexion"
-            android:textSize="15dp"/>
+            android:id="@+id/lv_expenseform" />
+
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/validation_frais"
-            android:layout_weight="0.2"
-            android:text="Frais visiteur"
-            android:backgroundTint="#1C41C6"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/frais_mois"
-            android:layout_weight="0.2"
-            android:text="Frais Mois"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/profil_compt"
-            android:layout_weight="0.25"
-            android:text="Profil"/>
-
-    </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

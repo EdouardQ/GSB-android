@@ -1,74 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/gsb"
-        android:layout_marginTop="40dp"
-        android:layout_marginHorizontal="100dp"
-
-        />
+    tools:context=".MainActivity">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="70dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/identifiant"
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Identifiant"
-            android:textSize="30dp"
-            android:gravity="center_horizontal"
-            android:singleLine="true"
-            />
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Mot de passe"
-            android:textSize="30dp"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="50dp"
-            android:singleLine="true"
-            android:inputType="textPassword"
-            />
-
-        <Button
-            android:id="@+id/connexion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:src="@drawable/gsb"
             android:layout_marginTop="40dp"
-            android:text="Connexion"
+            android:layout_marginHorizontal="100dp"
             />
 
-        <Button
-            android:id="@+id/test"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="test"
-            android:textColor="@color/black"
-            />
-        <Button
-            android:id="@+id/register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="Creer compte"
-            android:textColor="@color/black"
-            />
+            android:layout_marginHorizontal="70dp"
+            android:orientation="vertical">
 
+            <EditText
+                android:id="@+id/identifiant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Identifiant"
+                android:textSize="30dp"
+                android:gravity="center_horizontal"
+                android:singleLine="true"
+                />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mot de passe"
+                android:textSize="30dp"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                />
+
+            <Button
+                android:id="@+id/connexion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Connexion"
+                />
+
+        </LinearLayout>
     </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

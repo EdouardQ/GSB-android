@@ -1,7 +1,9 @@
 # GSB-Symfony
 
 
-## Pré-requis
+## APK
+
+app/release/gsb.apk
 
 ## Organisation
 - Git Hub (une branche pour la prod, une autre pour le dev afin de gérer les conflits)

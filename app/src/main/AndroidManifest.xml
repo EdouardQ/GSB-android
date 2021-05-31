@@ -17,13 +17,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".VisitorIndexActivity"></activity>
-        <activity android:name=".VisitorBundleMonthlyActivity"></activity>
+        <activity android:name=".VisitorExpenseFormActivity"></activity>
         <activity android:name=".VisitorCalendarActivity"></activity>
+        <activity android:name=".VisitorCalendarDateDetailActivity"></activity>
+        <activity android:name=".VisitorCalendarAddRdvActivity"></activity>
         <activity android:name=".VisitorPractitionersActivity"></activity>
         <activity android:name=".VisitorProfilActivity"></activity>
         <activity android:name=".AccountantIndexActivity"></activity>
         <activity android:name=".AccountantBundleMontlyActivity"></activity>
         <activity android:name=".AccountantListExpenseFormLeftActivity"></activity>
         <activity android:name=".AccountantProfilActivity"></activity>
+        <activity android:name=".VisitorPractitionerInfoActivity"></activity>
+        <activity android:name=".VisitorSetPractitionerActivity"></activity>
     </application>
+
 </manifest>
