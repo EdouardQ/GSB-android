@@ -44,8 +44,8 @@ public class VisitorAgendaInfoActivity extends AppCompatActivity {
 
         // affichage du rdv -> set
         tv_rdv.setText(String.format("%1$td-%1$tm-%1$tY", currentAgenda.getRdv()));
-        tv_user.setText(currentAgenda.getUser().getFirstName() + currentAgenda.getUser().getName());
-        tv_practitioner.setText(currentAgenda.getPractitioner().getFirstName() + currentAgenda.getPractitioner().getName());
+        tv_user.setText(currentAgenda.getUserName());
+        tv_practitioner.setText(currentAgenda.getPractitioner());
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override

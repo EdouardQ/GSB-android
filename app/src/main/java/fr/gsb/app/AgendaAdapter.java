@@ -45,7 +45,7 @@ public class AgendaAdapter extends BaseAdapter {
         Agenda current = (Agenda) getItem(position);
 
         tv_date.setText(String.format("%1$td-%1$tm-%1$tY", current.getRdv()));
-        tv_user.setText(current.getUser().getFirstName()+current.getUser().getName());
+        tv_user.setText(current.getUserName());
 
         return convertView;
     }

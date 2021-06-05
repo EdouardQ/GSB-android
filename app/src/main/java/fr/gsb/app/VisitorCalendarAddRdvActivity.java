@@ -145,7 +145,7 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        practitioners.add(new Practitioner(document).getName());
+                        practitioners.add(new Practitioner(document).getName()+" "+new Practitioner(document).getFirstName());
                     }
                     adapter = new ArrayAdapter<String>(VisitorCalendarAddRdvActivity.this, android.R.layout.simple_spinner_dropdown_item, practitioners);
                     spPractitioner.setAdapter(adapter);
@@ -177,10 +177,10 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
                     Timestamp ts = new Timestamp(date);
 
                     Map<String, Object> agendaMap = new HashMap<>();
-                    agendaMap.put("id", GenerateRandomString.randomString(20));
                     agendaMap.put("rdv", ts);
-                    agendaMap.put("user", db.document("users/"+currentUser.getId()));
-                    agendaMap.put("practitioner", db.document("practitioners/"+(spPractitioner.getSelectedItemPosition() + 1)));
+                    agendaMap.put("userId", currentUser.getId());
+                    agendaMap.put("userName", currentUser.getName()+" "+currentUser.getFirstName());
+                    agendaMap.put("practitioner", practitioners.get(spPractitioner.getSelectedItemPosition()));
 
                     db.collection("agenda").document(GenerateRandomString.randomString(20)).set(agendaMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override

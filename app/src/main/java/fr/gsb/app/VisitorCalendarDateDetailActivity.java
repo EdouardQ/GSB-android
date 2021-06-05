@@ -21,7 +21,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
 
@@ -63,6 +62,7 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Agenda currentAgenda = new Agenda(document);
+
                                 if ((String.format("%1$td-%1$tm-%1$tY", currentAgenda.getRdv())).equals(date_select)) {
                                     agendaList.add(currentAgenda);
                                 }

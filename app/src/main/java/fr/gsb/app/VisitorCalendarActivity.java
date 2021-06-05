@@ -2,7 +2,6 @@ package fr.gsb.app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -111,7 +110,11 @@ public class VisitorCalendarActivity extends AppCompatActivity {
     }
 
     private void datePickerChange(DatePicker dp_agenda, int year, int month, int dayOfMonth) {
-        Log.d("Date", "Year=" + year + " Month=" + (month + 1) + " day=" + dayOfMonth);
-        this.et_date.setText(dayOfMonth +"-" + (month + 1) + "-" + year);
+        //Log.d("Date", "Year=" + year + " Month=" + (month + 1) + " day=" + dayOfMonth);
+        String monthStr = String.valueOf(month+1);
+        if (month<=8) { // month + 1 = le mois reel
+            monthStr = "0"+monthStr;
+        }
+        this.et_date.setText(dayOfMonth +"-" + monthStr + "-" + year);
     }
 }
