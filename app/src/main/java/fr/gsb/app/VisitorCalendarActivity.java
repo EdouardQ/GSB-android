@@ -89,9 +89,8 @@ public class VisitorCalendarActivity extends AppCompatActivity {
         btn_consult_rdv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                long valeur = dp_agenda.getMinDate();
                 Intent consult_agenda = new Intent(VisitorCalendarActivity.this, VisitorCalendarDateDetailActivity.class);
-                consult_agenda.putExtra("consult_rdv", valeur);
+                consult_agenda.putExtra("currentUser", currentUser);
                 startActivity(consult_agenda);
             }
         });
