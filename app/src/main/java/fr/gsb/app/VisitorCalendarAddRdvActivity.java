@@ -31,9 +31,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -71,7 +68,7 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
         tv_ident.setText(currentUser.getName() + " " + currentUser.getFirstName());
 
 
-        btn_dcnx.setOnClickListener(new View.OnClickListener() {
+        this.btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
@@ -80,7 +77,7 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
                 startActivity(connexion);
             }
         });
-        btn_rdv.setOnClickListener(new View.OnClickListener() {
+        this.btn_rdv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent rdv = new Intent(VisitorCalendarAddRdvActivity.this, VisitorCalendarActivity.class);
@@ -89,7 +86,7 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
             }
         });
 
-        btn_praticien.setOnClickListener(new View.OnClickListener() {
+        this.btn_praticien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent praticien = new Intent(VisitorCalendarAddRdvActivity.this, VisitorPractitionersActivity.class);
@@ -98,7 +95,7 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
             }
         });
 
-        btn_frais.setOnClickListener(new View.OnClickListener() {
+        this.btn_frais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent frais = new Intent(VisitorCalendarAddRdvActivity.this, VisitorExpenseFormActivity.class);
@@ -107,7 +104,7 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
             }
         });
 
-        btn_profil.setOnClickListener(new View.OnClickListener() {
+        this.btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent profil = new Intent(VisitorCalendarAddRdvActivity.this, VisitorProfilActivity.class);
@@ -148,7 +145,7 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        practitioners.add(new Practitioner(document).getName());
+                        practitioners.add(new Practitioner(document).getName()+" "+new Practitioner(document).getFirstName());
                     }
                     adapter = new ArrayAdapter<String>(VisitorCalendarAddRdvActivity.this, android.R.layout.simple_spinner_dropdown_item, practitioners);
                     spPractitioner.setAdapter(adapter);
@@ -169,7 +166,7 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                 } else {
                     String toConvert = etDate.getText().toString() + " " + etTime.getText().toString();
-                    DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+                    DateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm");
                     Date date = null;
                     try {
                         date = df.parse(toConvert);
@@ -180,10 +177,10 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
                     Timestamp ts = new Timestamp(date);
 
                     Map<String, Object> agendaMap = new HashMap<>();
-                    agendaMap.put("id", GenerateRandomString.randomString(20));
                     agendaMap.put("rdv", ts);
-                    agendaMap.put("user", db.document("users/"+currentUser.getId()));
-                    agendaMap.put("practitioner", db.document("practitioners/"+(spPractitioner.getSelectedItemPosition() + 1)));
+                    agendaMap.put("userId", currentUser.getId());
+                    agendaMap.put("userName", currentUser.getName()+" "+currentUser.getFirstName());
+                    agendaMap.put("practitioner", practitioners.get(spPractitioner.getSelectedItemPosition()));
 
                     db.collection("agenda").document(GenerateRandomString.randomString(20)).set(agendaMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override

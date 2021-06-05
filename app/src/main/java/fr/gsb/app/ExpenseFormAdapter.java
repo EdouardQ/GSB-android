@@ -47,7 +47,7 @@ public class ExpenseFormAdapter extends BaseAdapter {
 
 
         tv_name.setText(current.getUserName()+" "+current.getUserFirstName());
-        tv_date.setText(String.format("%1$tm-%1$tY", current.getDate()));
+        tv_date.setText(String.format("%1$td-%1$tm-%1$tY %1$tR", current.getDate()));
 
         return convertView;
     }

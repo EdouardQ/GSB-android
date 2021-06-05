@@ -22,7 +22,7 @@ public class ExpenseForm implements Serializable {
     public ExpenseForm(DocumentSnapshot document) {
         this.id = document.getId();
         this.date = document.getDate("date");
-        this.km = document.getDouble("paid");
+        this.km = document.getDouble("km");
         this.otherCost = document.getString("otherCost");
         this.paid = document.getDouble("paid");
         this.userName = document.getString("userName");

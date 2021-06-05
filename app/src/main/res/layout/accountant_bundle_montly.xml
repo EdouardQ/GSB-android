@@ -107,7 +107,7 @@
                     android:text="Date:"
                     android:textSize="25dp"/>
                 <Spinner
-                    android:id="@+id/TODO"
+                    android:id="@+id/sp_month"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="4dp"
@@ -126,6 +126,7 @@
             android:layout_gravity="center_horizontal"
             android:singleLine="true"
             android:textSize="12dp"
+            android:id="@+id/btn_validate"
             />
     </LinearLayout>
 </ScrollView>

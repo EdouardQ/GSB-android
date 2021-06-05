@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,8 +29,8 @@ public class AccountantListExpenseFormLeftActivity extends AppCompatActivity {
     private Button btn_frais_mois;
     private Button btn_profil;
     private TextView tv_ident;
-    private ListView lv_expenseform;
-    private List<ExpenseForm> expenseformList;
+    private ListView lv_expense_form;
+    private List<ExpenseForm> expenseFormList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,14 +41,19 @@ public class AccountantListExpenseFormLeftActivity extends AppCompatActivity {
         btn_frais_mois = findViewById(R.id.frais_mois);
         btn_profil = findViewById(R.id.profil_compt);
         tv_ident = findViewById(R.id.tv_ident);
-        lv_expenseform = findViewById(R.id.lv_expenseform);
+        lv_expense_form = findViewById(R.id.lv_expense_form);
+
+        //récupère les infos pour le nom prénom
+        Intent i_recu = getIntent();
+        User currentUser = (User) i_recu.getSerializableExtra("currentUser");
+        tv_ident.setText(currentUser.getName() + " " + currentUser.getFirstName());
 
 
         // listage des fiches de frais non validées
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        expenseformList = new ArrayList<>();
+        expenseFormList = new ArrayList<>();
 
         db.collection("expense_forms")
                 .get() // récupère tout les fiches de frais de la collection
@@ -59,26 +65,29 @@ public class AccountantListExpenseFormLeftActivity extends AppCompatActivity {
                                 //Log.d("FIREC", document.getId() + " => " + document.getData());
 
                                 if (document.getString("state").equals("Saisie clôturée")){
-                                    expenseformList.add(new ExpenseForm(document));
+                                    expenseFormList.add(new ExpenseForm(document));
                                 }
 
                             }
                             // ajoute la liste des fiches frais dans la listview
-                            ExpenseFormAdapter expenseAdapt = new ExpenseFormAdapter(AccountantListExpenseFormLeftActivity.this, expenseformList);
-                            lv_expenseform.setAdapter(expenseAdapt); // affiche la listview
+                            ExpenseFormAdapter expenseAdapt = new ExpenseFormAdapter(AccountantListExpenseFormLeftActivity.this, expenseFormList);
+                            lv_expense_form.setAdapter(expenseAdapt); // affiche la listview
                         } else {
                             Log.d("FIREC", "Error getting documents: ", task.getException());
                         }
                     }
                 });
 
-
-
-
-        //récupère les infos pour le nom prénom
-        Intent i_recu = getIntent();
-        User currentUser = (User) i_recu.getSerializableExtra("currentUser");
-        tv_ident.setText(currentUser.getName() + " " + currentUser.getFirstName());
+        lv_expense_form.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ExpenseForm current = (ExpenseForm) parent.getAdapter().getItem(position);
+                Intent expenseFormInfo = new Intent(AccountantListExpenseFormLeftActivity.this, AccountantExpenseFormValidation.class);
+                expenseFormInfo.putExtra("currentUser", currentUser);
+                expenseFormInfo.putExtra("expenseFormInfo", current);
+                startActivity(expenseFormInfo);
+            }
+        });
         
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {

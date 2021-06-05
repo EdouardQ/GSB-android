@@ -21,6 +21,7 @@
         <activity android:name=".VisitorCalendarActivity"></activity>
         <activity android:name=".VisitorCalendarDateDetailActivity"></activity>
         <activity android:name=".VisitorCalendarAddRdvActivity"></activity>
+        <activity android:name=".VisitorAgendaInfoActivity"></activity>
         <activity android:name=".VisitorPractitionersActivity"></activity>
         <activity android:name=".VisitorProfilActivity"></activity>
         <activity android:name=".AccountantIndexActivity"></activity>
@@ -29,6 +30,8 @@
         <activity android:name=".AccountantProfilActivity"></activity>
         <activity android:name=".VisitorPractitionerInfoActivity"></activity>
         <activity android:name=".VisitorSetPractitionerActivity"></activity>
+        <activity android:name=".AccountantExpenseFormValidation"></activity>
+        <activity android:name=".AccountantBundleMontlyInfoActivity"></activity>
     </application>
 
 </manifest>
