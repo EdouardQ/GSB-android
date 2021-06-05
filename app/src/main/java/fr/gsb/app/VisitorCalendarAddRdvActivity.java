@@ -68,7 +68,7 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
         tv_ident.setText(currentUser.getName() + " " + currentUser.getFirstName());
 
 
-        btn_dcnx.setOnClickListener(new View.OnClickListener() {
+        this.btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
@@ -77,7 +77,7 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
                 startActivity(connexion);
             }
         });
-        btn_rdv.setOnClickListener(new View.OnClickListener() {
+        this.btn_rdv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent rdv = new Intent(VisitorCalendarAddRdvActivity.this, VisitorCalendarActivity.class);
@@ -86,7 +86,7 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
             }
         });
 
-        btn_praticien.setOnClickListener(new View.OnClickListener() {
+        this.btn_praticien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent praticien = new Intent(VisitorCalendarAddRdvActivity.this, VisitorPractitionersActivity.class);
@@ -95,7 +95,7 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
             }
         });
 
-        btn_frais.setOnClickListener(new View.OnClickListener() {
+        this.btn_frais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent frais = new Intent(VisitorCalendarAddRdvActivity.this, VisitorExpenseFormActivity.class);
@@ -104,7 +104,7 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
             }
         });
 
-        btn_profil.setOnClickListener(new View.OnClickListener() {
+        this.btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent profil = new Intent(VisitorCalendarAddRdvActivity.this, VisitorProfilActivity.class);

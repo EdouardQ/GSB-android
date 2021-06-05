@@ -39,6 +39,9 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
 
         Intent i_recu = getIntent();
 
+        int date_select;
+
+
         // Partie sur la navigation de l'appli
         this.tv_ident = findViewById(R.id.tv_ident);
         this.btn_dcnx = findViewById(R.id.deconnexion);
@@ -63,9 +66,7 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                //Log.d("FIREC", document.getId() + " => " + document.getData());
                                 agendaList.add(new Agenda(document));
-                                //Log.d("testPendant", practitionerList.size()+""); // taille de la liste
                             }
                             // ajoute la liste des rdv dans la listview
                             AgendaAdapter agenAdap = new AgendaAdapter(VisitorCalendarDateDetailActivity.this, agendaList);
@@ -76,7 +77,7 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
                     }
                 });
 
-        lv_rdv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        this.lv_rdv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Agenda current = (Agenda) parent.getAdapter().getItem(position);
@@ -87,7 +88,7 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
             }
         });
 
-        btn_dcnx.setOnClickListener(new View.OnClickListener() {
+        this.btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
@@ -96,7 +97,7 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
                 startActivity(connexion);
             }
         });
-        btn_rdv.setOnClickListener(new View.OnClickListener() {
+        this.btn_rdv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent rdv = new Intent(VisitorCalendarDateDetailActivity.this, VisitorCalendarActivity.class);
@@ -105,7 +106,7 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
             }
         });
 
-        btn_praticien.setOnClickListener(new View.OnClickListener() {
+        this.btn_praticien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent praticien = new Intent(VisitorCalendarDateDetailActivity.this, VisitorPractitionersActivity.class);
@@ -114,7 +115,7 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
             }
         });
 
-        btn_frais.setOnClickListener(new View.OnClickListener() {
+        this.btn_frais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent frais = new Intent(VisitorCalendarDateDetailActivity.this, VisitorExpenseFormActivity.class);
@@ -123,7 +124,7 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
             }
         });
 
-        btn_profil.setOnClickListener(new View.OnClickListener() {
+        this.btn_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent profil = new Intent(VisitorCalendarDateDetailActivity.this, VisitorProfilActivity.class);
