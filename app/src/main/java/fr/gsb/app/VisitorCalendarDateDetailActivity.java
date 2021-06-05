@@ -28,9 +28,6 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
     private TextView tv_ident;
     private Button btn_dcnx, btn_praticien, btn_rdv, btn_frais, btn_profil;
     private ListView lv_rdv;
-    private List<Agenda> agendaList;
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,8 +36,8 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
 
         Intent i_recu = getIntent();
 
-        int date_select;
-
+        String date_select;
+        date_select = i_recu.getStringExtra("date_select");
 
         // Partie sur la navigation de l'appli
         this.tv_ident = findViewById(R.id.tv_ident);
@@ -53,11 +50,9 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
         User currentUser = (User) i_recu.getSerializableExtra("currentUser");
         tv_ident.setText(currentUser.getName() + " " + currentUser.getFirstName());
 
-        // listage des praticiens
-
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        agendaList = new ArrayList<>();
+        ArrayList<Agenda> agendaList = new ArrayList<Agenda>();
 
         db.collection("agenda")
                 .get() // récupère tout les rdv de la collection
@@ -65,8 +60,12 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
+
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                agendaList.add(new Agenda(document));
+                                Agenda currentAgenda = new Agenda(document);
+                                if ((String.format("%1$td-%1$tm-%1$tY", currentAgenda.getRdv())).equals(date_select)) {
+                                    agendaList.add(currentAgenda);
+                                }
                             }
                             // ajoute la liste des rdv dans la listview
                             AgendaAdapter agenAdap = new AgendaAdapter(VisitorCalendarDateDetailActivity.this, agendaList);

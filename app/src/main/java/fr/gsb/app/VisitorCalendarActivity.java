@@ -104,7 +104,7 @@ public class VisitorCalendarActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent consult_agenda = new Intent(VisitorCalendarActivity.this, VisitorCalendarDateDetailActivity.class);
                 consult_agenda.putExtra("currentUser", currentUser);
-                consult_agenda.putExtra("date_select", et_date.getText());
+                consult_agenda.putExtra("date_select", et_date.getText().toString());
                 startActivity(consult_agenda);
             }
         });

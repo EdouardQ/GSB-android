@@ -3,9 +3,10 @@ package fr.gsb.app;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Agenda {
+public class Agenda implements Serializable {
     private String id;
     private Date rdv;
     private User user;
