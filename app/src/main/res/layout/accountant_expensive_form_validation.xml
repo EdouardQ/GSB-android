@@ -159,11 +159,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginVertical="50dp">
-
-            <LinearLayout
-                android:layout_width="5dp"
-                android:layout_height="wrap_content"/>
+            android:layout_marginVertical="50dp"
+            android:orientation="vertical">
 
             <Button
                 android:layout_width="wrap_content"
@@ -172,9 +169,11 @@
                 android:text="Rembourser"
                 android:gravity="left"
                 android:id="@+id/btn_refund"/>
-                <LinearLayout
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"/>
+
             <Button
                 android:id="@+id/btn_refuse"
                 android:layout_width="wrap_content"
