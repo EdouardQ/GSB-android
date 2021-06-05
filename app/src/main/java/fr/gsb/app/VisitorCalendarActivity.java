@@ -13,13 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class VisitorCalendarActivity extends AppCompatActivity {
 
-    private Button btn_dcnx;
-    private Button btn_praticien;
-    private Button btn_rdv;
-    private Button btn_frais;
-    private Button btn_profil;
-    private Button btn_add_rdv;
-    private Button btn_consult_rdv;
+    private Button btn_consult_rdv, btn_add_rdv, btn_dcnx, btn_praticien, btn_rdv, btn_frais, btn_profil;
     private TextView tv_ident;
     private DatePicker dp_agenda;
 
@@ -30,7 +24,6 @@ public class VisitorCalendarActivity extends AppCompatActivity {
 
         btn_dcnx = findViewById(R.id.deconnexion);
         btn_praticien = findViewById(R.id.praticien);
-        btn_rdv = findViewById(R.id.rdv);
         btn_frais = findViewById(R.id.frais);
         btn_profil = findViewById(R.id.profil);
         btn_add_rdv = findViewById(R.id.btn_add_rdv);

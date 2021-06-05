@@ -166,7 +166,7 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                 } else {
                     String toConvert = etDate.getText().toString() + " " + etTime.getText().toString();
-                    DateFormat df = new SimpleDateFormat("MM-dd-yyyy HH:mm");
+                    DateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm");
                     Date date = null;
                     try {
                         date = df.parse(toConvert);
