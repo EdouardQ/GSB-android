@@ -49,7 +49,7 @@ public class VisitorAgendaInfoActivity extends AppCompatActivity {
         tv_practitioner = findViewById(R.id.tv_practitioner);
 
         // affichage du rdv -> set
-        tv_rdv.setText(String.format("%1$td-%1$tm-%1$tY", currentAgenda.getRdv()));
+        tv_rdv.setText("Le "+String.format("%1$td-%1$tm-%1$tY", currentAgenda.getRdv())+" à "+String.format("%1$tR", currentAgenda.getRdv()));
         tv_user.setText(currentAgenda.getUserName());
         tv_practitioner.setText(currentAgenda.getPractitioner());
 
