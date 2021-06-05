@@ -29,6 +29,7 @@
         <activity android:name=".AccountantProfilActivity"></activity>
         <activity android:name=".VisitorPractitionerInfoActivity"></activity>
         <activity android:name=".VisitorSetPractitionerActivity"></activity>
+        <activity android:name=".AccountantExpenseFormValidation"></activity>
     </application>
 
 </manifest>

@@ -187,6 +187,15 @@ public class AccountantProfilActivity extends AppCompatActivity {
             }
         });
 
+        btn_frais_mois.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent frais_mois = new Intent(AccountantProfilActivity.this, AccountantBundleMontlyActivity.class);
+                frais_mois.putExtra("currentUser", currentUser);
+                startActivity(frais_mois);
+            }
+        });
+
 
     }
 }
