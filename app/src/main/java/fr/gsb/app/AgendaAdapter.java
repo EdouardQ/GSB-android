@@ -39,14 +39,13 @@ public class AgendaAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.visitor_agenda_row, null);
         }
 
-        TextView tv_name = convertView.findViewById(R.id.tv_row_date);
-        TextView tv_firstName = convertView.findViewById(R.id.tv_row_user);
+        TextView tv_date = convertView.findViewById(R.id.tv_row_date);
+        TextView tv_user = convertView.findViewById(R.id.tv_row_user);
 
         Agenda current = (Agenda) getItem(position);
 
-
-        tv_name.setText(String.format("%1$td-%1$tm-%1$tY", current.getRdv()));
-        tv_firstName.setText(current.getId());
+        tv_date.setText(String.format("%1$td-%1$tm-%1$tY", current.getRdv()));
+        tv_user.setText(current.getUser().getFirstName()+current.getUser().getName());
 
         return convertView;
     }

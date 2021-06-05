@@ -38,14 +38,14 @@ public class VisitorAgendaInfoActivity extends AppCompatActivity {
         tv_ident.setText(currentUser.getName() + " " + currentUser.getFirstName());
 
         // affichage du rdv -> find
-        tv_rdv = findViewById(R.id.tv_name);
-        tv_user = findViewById(R.id.tv_firstName);
-        tv_practitioner = findViewById(R.id.tv_coeffReputation);
+        tv_rdv = findViewById(R.id.tv_rdv);
+        tv_user = findViewById(R.id.tv_user);
+        tv_practitioner = findViewById(R.id.tv_practitioner);
 
         // affichage du rdv -> set
         tv_rdv.setText(String.format("%1$td-%1$tm-%1$tY", currentAgenda.getRdv()));
         tv_user.setText(currentAgenda.getUser().getFirstName() + currentAgenda.getUser().getName());
-        tv_practitioner.setText(String.valueOf(currentAgenda.getPractitioner().getFirstName() + currentAgenda.getPractitioner().getName())); // double -> String
+        tv_practitioner.setText(currentAgenda.getPractitioner().getFirstName() + currentAgenda.getPractitioner().getName());
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override

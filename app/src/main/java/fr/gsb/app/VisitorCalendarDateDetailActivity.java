@@ -46,6 +46,7 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
         this.btn_rdv = findViewById(R.id.rdv);
         this.btn_frais = findViewById(R.id.frais);
         this.btn_profil = findViewById(R.id.profil);
+        this.lv_rdv = findViewById(R.id.lv_rdv);
 
         User currentUser = (User) i_recu.getSerializableExtra("currentUser");
         tv_ident.setText(currentUser.getName() + " " + currentUser.getFirstName());
@@ -60,7 +61,6 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Agenda currentAgenda = new Agenda(document);
                                 if ((String.format("%1$td-%1$tm-%1$tY", currentAgenda.getRdv())).equals(date_select)) {
@@ -80,7 +80,7 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Agenda current = (Agenda) parent.getAdapter().getItem(position);
-                Intent agendaInfo = new Intent(VisitorCalendarDateDetailActivity.this, VisitorPractitionerInfoActivity.class);
+                Intent agendaInfo = new Intent(VisitorCalendarDateDetailActivity.this, VisitorAgendaInfoActivity.class);
                 agendaInfo.putExtra("currentUser", currentUser);
                 agendaInfo.putExtra("agendaInfo", (Serializable) current);
                 startActivity(agendaInfo);
