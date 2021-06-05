@@ -31,9 +31,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -169,7 +166,7 @@ public class VisitorCalendarAddRdvActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                 } else {
                     String toConvert = etDate.getText().toString() + " " + etTime.getText().toString();
-                    DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+                    DateFormat df = new SimpleDateFormat("MM-dd-yyyy HH:mm");
                     Date date = null;
                     try {
                         date = df.parse(toConvert);
