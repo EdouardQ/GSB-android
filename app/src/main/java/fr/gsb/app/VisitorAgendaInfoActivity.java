@@ -2,15 +2,19 @@ package fr.gsb.app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.io.Serializable;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class VisitorAgendaInfoActivity extends AppCompatActivity {
     private Button btn_dcnx, btn_praticien, btn_rdv, btn_frais, btn_profil, btn_del_rdv;
@@ -24,6 +28,8 @@ public class VisitorAgendaInfoActivity extends AppCompatActivity {
 
         Intent i_recu = getIntent();
         currentAgenda = (Agenda) i_recu.getSerializableExtra("agendaInfo");
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         btn_del_rdv = findViewById(R.id.btn_delete_rdv);
 
@@ -46,6 +52,31 @@ public class VisitorAgendaInfoActivity extends AppCompatActivity {
         tv_rdv.setText(String.format("%1$td-%1$tm-%1$tY", currentAgenda.getRdv()));
         tv_user.setText(currentAgenda.getUserName());
         tv_practitioner.setText(currentAgenda.getPractitioner());
+
+        btn_del_rdv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db.collection("agenda").document(currentAgenda.getId())
+                        .delete()
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.d("FIREC", "DocumentSnapshot successfully deleted!");
+                                Intent rdv = new Intent(VisitorAgendaInfoActivity.this, VisitorCalendarActivity.class);
+                                rdv.putExtra("currentUser", currentUser);
+                                Toast.makeText(VisitorAgendaInfoActivity.this, "Rendez-vous supprimé.",
+                                        Toast.LENGTH_SHORT).show();
+                                startActivity(rdv);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w("FIREC", "Error deleting document", e);
+                            }
+                        });
+            }
+        });
 
         btn_dcnx.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,14 +123,5 @@ public class VisitorAgendaInfoActivity extends AppCompatActivity {
             }
         });
 
-        btn_del_rdv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent setAgenda = new Intent(VisitorAgendaInfoActivity.this, VisitorSetPractitionerActivity.class);
-                setAgenda.putExtra("currentUser", currentUser);
-                setAgenda.putExtra("agendaInfo", (Serializable) currentAgenda);
-                startActivity(setAgenda);
-            }
-        });
     }
 }

@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -80,10 +81,16 @@ public class VisitorCalendarDateDetailActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Agenda current = (Agenda) parent.getAdapter().getItem(position);
-                Intent agendaInfo = new Intent(VisitorCalendarDateDetailActivity.this, VisitorAgendaInfoActivity.class);
-                agendaInfo.putExtra("currentUser", currentUser);
-                agendaInfo.putExtra("agendaInfo", (Serializable) current);
-                startActivity(agendaInfo);
+                if (current.getUserId().equals(currentUser.getId())){ // si le rdv appartient à l'utilisateur actuel
+                    Intent agendaInfo = new Intent(VisitorCalendarDateDetailActivity.this, VisitorAgendaInfoActivity.class);
+                    agendaInfo.putExtra("currentUser", currentUser);
+                    agendaInfo.putExtra("agendaInfo", (Serializable) current);
+                    startActivity(agendaInfo);
+                }
+                else {
+                    Toast.makeText(VisitorCalendarDateDetailActivity.this, "Ce rendez-vous ne vous est pas assigné.",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
